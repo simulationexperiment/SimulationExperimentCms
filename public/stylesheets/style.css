@@ -1,0 +1,109 @@
+.edit-content .base-info{
+    float: left;
+    width: 30%;
+    border: 1px solid #cccccc;
+    margin-right: 5px;
+    padding-bottom: 25px;
+}
+
+.edit-content .edit-info{
+    float: left;
+    width: 69%;
+    border: 1px solid #cccccc;
+}
+
+.info-title{
+    padding: 5px;
+    background-color: #f1f1f1;
+}
+.detail-content{
+    padding: 5px;
+}
+.edit-content .detail-image{
+    width: 80%;
+    margin: 0 auto;
+}
+.detail-image{
+    text-align: center;
+}
+.info-line{
+    border-top: 1px solid #f1f1f1;
+}
+.info-text{
+    padding: 10px;
+}
+.info-text span:nth-child(2){
+    float: right;
+}
+.check-invalid input{
+    border: 1px solid #c51919;
+    color: #c51919
+}
+.check-invalid p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #c51919
+}
+.form-actions select{
+    width: 150px;
+}
+.table td{
+    vertical-align: middle !important;
+}
+.table button{
+    width: 72px;
+}
+.form-mix .control-label{
+    text-align: right;
+}
+.form-mix .form-group{
+    margin-bottom: 15px;
+
+}
+.form-mix .form-group {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.service-edit .table th:nth-child(1){
+    width: 15%;
+}
+.service-edit .table th:nth-child(2){
+    width: 60%;
+}
+.right{
+    text-align: right !important;
+}
+.payment-price{
+    font-size: 22px;
+    color: #d62b2b;
+}
+.original-price{
+    font-size: 16px;
+    color: #a5a5a5;
+    text-decoration: line-through;
+}
+.submenu a{
+    text-decoration: none !important;
+}
+
+.form-search{
+    padding: 15px;
+    border: 1px solid #e0dcdc;
+    background-color: #f3f3f3;
+}
+.search-control{
+    width: 150px;
+}
+.article{
+    width: 800px;
+    margin: 0 auto;
+}
+.article h1{
+    text-align: center;
+    font-weight: bold;
+}
+.article p{
+    font-size: 16px;
+    line-height:30px;
+    text-indent:32px;
+}

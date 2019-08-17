@@ -1,0 +1,25 @@
+{
+  "StoreService": {
+    "host": "localhost",
+    "port": 8080,
+    "path": {
+      "login": "/api/admin/login",
+      "bank": "/api/bank",
+      "bankCodeExist": "/api/bank/exist",
+      "changeStatus4Bank": "/api/bank/changeStatus",
+      "bankBranch": "/api/bank/branch",
+      "bankBranchWithCode": "/api/bank/branch/code",
+      "bankBranchCodeExist": "/api/bank/branch/exist",
+      "changeStatus4BankBranch": "/api/bank/branch/changeStatus",
+      "chinaMapping": "/api/chinaMapping",
+      "admin": "/api/admin",
+      "systemSetting": "/api/system/setting",
+      "serviceSetting": "/api/service/setting",
+      "systemAccount": "/api/system/account",
+      "systemAccountExist": "/api/system/account/exist",
+      "changeStatus4SystemAccount": "/api/system/account/changeStatus",
+      "order": "/api/order",
+      "changeStatus4Order": "/api/order/changeStatus"
+    }
+  }
+}
