@@ -57,7 +57,17 @@ function getActivePath() {
     return '/refusedResource';
   }
 
-  return '';
+  if(pathname.indexOf('experiments') >= 0){
+    return '/experiments';
+  }
+  if(pathname.indexOf('assignExperiment') >= 0){
+    return '/assignExperiment';
+  }
+  if(pathname.indexOf('myExperiment') >= 0){
+    return '/myExperiment';
+  }
+
+  return pathname;
 }
 
 // function alertMessage(msg) {

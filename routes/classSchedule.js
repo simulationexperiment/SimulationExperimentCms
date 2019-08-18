@@ -1,8 +1,9 @@
 let express = require('express');
 let router = express.Router();
 
+/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('experimentPurposes4Transport', {title: '3D运输实验目的'});
+  res.render('classSchedule', { title: '总课程表' });
 });
 
 module.exports = router;

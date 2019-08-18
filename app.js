@@ -18,10 +18,33 @@ const waitingResourceRouter = require('./routes/waitingResource');
 const usingResourceRouter = require('./routes/usingResource');
 const refusedResourceRouter = require('./routes/refusedResource');
 
-// const systemAccountRouter = require('./routes/systemAccount');
-// const systemAccountEditRouter = require('./routes/systemAccountEdit');
-// const orderRouter = require('./routes/order');
-// const orderEditRouter = require('./routes/orderEdit');
+const experimentsRouter = require('./routes/experiments');
+const assignExperimentRouter = require('./routes/assignExperiment');
+const myExperimentRouter = require('./routes/myExperiment');
+
+const createCompanyRouter = require('./routes/createCompany');
+const acceptConsignmentRouter = require('./routes/acceptConsignment');
+const transportationMonitoringRouter = require('./routes/transportationMonitoring');
+const transportationRouter = require('./routes/transportation');
+const costAccountingRouter = require('./routes/costAccounting');
+
+
+const experimentReportRouter = require('./routes/experimentReport');
+const experimentReviewRouter = require('./routes/experimentReview');
+const experimentScoreRouter = require('./routes/experimentScore');
+
+const classScheduleOfTeacherRouter = require('./routes/classScheduleOfTeacher');
+const classScheduleRouter = require('./routes/classSchedule');
+
+const bookingLaboratoryRouter = require('./routes/bookingLaboratory');
+const viewBookedLaboratoryRouter = require('./routes/viewBookedLaboratory');
+
+const usersRouter = require('./routes/users');
+const userInfoRouter = require('./routes/userInfo');
+const changePasswordRouter = require('./routes/changePassword');
+
+const QARouter = require('./routes/QA');
+
 const commonRouter = require('./routes/common');
 
 let app = express();
@@ -45,6 +68,8 @@ app.use(function (req, res, next) {
   next();
 });
 
+
+
 app.use('/', loginRouter);
 app.use('/index', indexRouter);
 app.use('/knowledge', knowledgeRouter);
@@ -56,11 +81,26 @@ app.use('/myResource', myResourceRouter);
 app.use('/waitingResource', waitingResourceRouter);
 app.use('/usingResource', usingResourceRouter);
 app.use('/refusedResource', refusedResourceRouter);
+app.use('/experiments', experimentsRouter);
+app.use('/assignExperiment', assignExperimentRouter);
+app.use('/myExperiment', myExperimentRouter);
+app.use('/createCompany', createCompanyRouter);
+app.use('/acceptConsignment', acceptConsignmentRouter);
+app.use('/transportationMonitoring', transportationMonitoringRouter);
+app.use('/transportation', transportationRouter);
+app.use('/costAccounting', costAccountingRouter);
+app.use('/experimentReport', experimentReportRouter);
+app.use('/experimentReview', experimentReviewRouter);
+app.use('/experimentScore', experimentScoreRouter);
+app.use('/classScheduleOfTeacher', classScheduleOfTeacherRouter);
+app.use('/classSchedule', classScheduleRouter);
+app.use('/bookingLaboratory', bookingLaboratoryRouter);
+app.use('/viewBookedLaboratory', viewBookedLaboratoryRouter);
+app.use('/userInfo', userInfoRouter);
+app.use('/users', usersRouter);
+app.use('/changePassword', changePasswordRouter);
+app.use('/QA', QARouter);
 
-// app.use('/systemAccount', systemAccountRouter);
-// app.use('/systemAccount/edit', systemAccountEditRouter);
-// app.use('/order', orderRouter);
-// app.use('/order/edit', orderEditRouter);
 app.use('/common', commonRouter);
 
 // catch 404 and forward to error handler

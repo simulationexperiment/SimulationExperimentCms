@@ -1,0 +1,162 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <i class="icon-home home-icon"></i>
+      <a href="/index">主页</a>
+    </li>
+    <li>
+      问题讨论区
+    </li>
+    <li class="active">留言板</li>
+  </ul>
+</div>
+
+<div class="page-content" ng-app="myApp" ng-controller="myCtrl">
+  <div class="page-header">
+    <h1>
+      留言板
+      <small>
+        <i class="icon-double-angle-right"></i>
+        详细信息
+      </small>
+    </h1>
+  </div>
+  <div class="space-6"></div>
+  <div class="row">
+    <div class="col-xs-12">
+      <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">
+        <i class="icon-hand-up"></i>
+        我要提问
+      </button>
+      <div class="space-6"></div>
+
+      <div id="faq-tab-2" class="tab-pane fade active in">
+        <h4 class="blue">
+          <i class="green ace-icon fa fa-user bigger-110"></i>
+          Questions
+        </h4>
+
+        <div class="space-8"></div>
+
+        <div id="faq-list-2" class="panel-group accordion-style1 accordion-style2">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <a href="#faq-2-1" data-parent="#faq-list-2" data-toggle="collapse" class="accordion-toggle collapsed" aria-expanded="false">
+                <i class="smaller-80 ace-icon icon-chevron-right " data-icon-hide="ace-icon icon-chevron-down align-top" data-icon-show="ace-icon icon-chevron-right"></i>&nbsp;
+                Enim eiusmod high life accusamus terry richardson?
+              </a>
+              <a href="#" style="margin-left: 25px">我来回答</a>
+            </div>
+
+            <div class="panel-collapse collapse" id="faq-2-1" aria-expanded="false" style="height: 0px;">
+              <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <a href="#faq-2-2" data-parent="#faq-list-2" data-toggle="collapse" class="accordion-toggle collapsed" aria-expanded="false" style="width: 80%">
+                <i class="smaller-80 ace-icon icon-chevron-right " data-icon-hide="ace-icon icon-chevron-down align-top" data-icon-show="ace-icon icon-chevron-right"></i>&nbsp;
+                Single-origin coffee nulla assumenda shoreditch et?
+              </a>
+              <a href="#" style="margin-left: 25px">我来回答</a>
+            </div>
+
+            <div class="panel-collapse collapse" id="faq-2-2" aria-expanded="false" style="height: 0px;">
+              <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <a href="#faq-2-3" data-parent="#faq-list-2" data-toggle="collapse" class="accordion-toggle collapsed" aria-expanded="false">
+                <i class="middle smaller-80 ace-icon icon-chevron-right" data-icon-hide="ace-icon icon-chevron-down align-top" data-icon-show="ace-icon icon-chevron-right"></i>&nbsp;
+                Sunt aliqua put a bird on it squid?
+              </a>
+              <a href="#" style="margin-left: 25px">我来回答</a>
+            </div>
+
+            <div class="panel-collapse collapse" id="faq-2-3" aria-expanded="false" style="height: 0px;">
+              <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <a href="#faq-2-4" data-parent="#faq-list-2" data-toggle="collapse" class="accordion-toggle" aria-expanded="true">
+                <i class="smaller-80 ace-icon icon-chevron-down align-top" data-icon-hide="ace-icon icon-chevron-down align-top" data-icon-show="ace-icon icon-chevron-right"></i>&nbsp;
+                Brunch 3 wolf moon tempor sunt aliqua put?
+              </a>
+              <a href="#" style="margin-left: 25px">我来回答</a>
+            </div>
+
+            <div class="panel-collapse collapse in" id="faq-2-4" aria-expanded="true" style="">
+              <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">填写提问内容</h4>
+        </div>
+        <div class="alert alert-danger store-alert hidden">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <span></span>
+        </div>
+        <form class="form-horizontal" name="myForm" novalidate>
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">系统</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedSystem" ng-options="system as system.systemName for system in model.systemList"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">实验名称</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedCourse" ng-options="course as course.courseName for course in model.courseList"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">问题</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" maxlength="500" id="knowledgeContent" name="knowledgeContent" ng-model="model.knowledgeContent" required placeholder="请输入知识点内容"></textarea>
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-primary" ng-disabled="model.selectedSystem.systemID == 0
+                                                                            || model.selectedExercisesType.exercisesTypeCode == 0
+                                                                            || model.selectedCourse.courseCode == 0
+                                                                            || model.selectedKnowledge.knowledgeCode == 0
+                                                                            || model.selectedExperiment.experimentCode == 0"> <i class="icon-save"></i>提交</button>
+            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal"><i class="icon-remove"></i>关闭</button>
+          </div>
+        </form>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+</div>
+
+<input type="hidden" value="{{currentPageNum}}" id="hidden-currentPageNum">
+<script src="/javascripts/view/knowledge.js"></script>
