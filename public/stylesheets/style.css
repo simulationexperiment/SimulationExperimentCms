@@ -7,9 +7,8 @@
 }
 
 .edit-content .edit-info{
-    float: left;
-    width: 69%;
-    border: 1px solid #cccccc;
+    margin: 0 auto;
+    width: 65%;
 }
 
 .info-title{

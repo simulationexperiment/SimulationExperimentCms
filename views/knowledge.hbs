@@ -1,3 +1,10 @@
+<link rel="stylesheet" href="/stylesheets/fileUpload/iconfont.css" />
+<link rel="stylesheet" href="/stylesheets/fileUpload/fileUpload.css">
+<link rel="stylesheet" href="/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css">
+
+<script src="/ckeditor/ckeditor.js"></script>
+<script src="/ckeditor/samples/js/sample.js"></script>
+
 <div class="breadcrumbs" id="breadcrumbs">
   <ul class="breadcrumb">
     <li>
@@ -44,10 +51,10 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">
+      <a href="/knowledge/edit" class="btn btn-sm btn-primary">
         <i class="icon-plus"></i>
         添加
-      </button>
+      </a>
       <div class="space-6"></div>
       <div class="table-header">
         找到{{totalCount}}条数据
@@ -59,9 +66,6 @@
             <th class="center">序号</th>
             <th class="center">系统</th>
             <th class="center">知识点名称</th>
-            <th class="center">知识点内容</th>
-            <th class="center">实验步骤</th>
-
             <th class="hidden-480">添加</th>
             <th>
               <i class="icon-time bigger-110 hidden-480"></i>
@@ -78,41 +82,27 @@
           <tbody>
           {{#each dataList}}
             <tr>
-              <td class="center">
-                <img src="{{this.bankLogo}}" style="width: 120px">
-              </td>
-              <td>{{this.bankCode}}</td>
-              <td>{{this.bankName}}</td>
-              <td>{{this.dataStatusText}}</td>
+              <td class="center">{{this.knowledgeID}}</td>
+              <td>{{this.systemName}}</td>
+              <td>{{this.knowledgeName}}</td>
               <td>{{this.createUser}}</td>
               <td>{{this.createTime}}</td>
               <td>{{this.updateUser}}</td>
               <td>{{this.updateTime}}</td>
               <td>
                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                  <button type="button" class="btn btn-sm btn-primary" ng-click="onChange({{this.bankID}})">
+                  <button type="button" class="btn btn-sm btn-primary" ng-click="onShowKnowledgeContent('{{this.knowledgeName}}', '{{this.knowledgeContent}}')">
+                    <i class="icon-eye-open"></i>
+                    查看
+                  </button>
+                  <button type="button" class="btn btn-sm btn-success" ng-click="onChange({{this.knowledgeID}})">
                     <i class="icon-edit"></i>
                     修改
                   </button>
-                  {{# if this.isNormal}}
-                    <button type="button" class="btn btn-sm btn-danger" ng-click="onDelete('{{this.bankID}}','{{this.bankName}}')">
-                      <i class="icon-trash"></i>
-                      删除
-                    </button>
-                  {{/if}}
-
-                  {{# if this.isFrozen}}
-                    <button type="button" class="btn btn-sm btn-success" ng-click="onRecover('{{this.bankID}}','{{this.bankName}}')">
-                      <i class="icon-reply"></i>
-                      恢复
-                    </button>
-                  {{/if}}
-                  {{# if this.isDelete}}
-                    <button type="button" class="btn btn-sm btn-success" ng-click="onRecover('{{this.bankID}}','{{this.bankName}}')">
-                      <i class="icon-reply"></i>
-                      恢复
-                    </button>
-                  {{/if}}
+                  <button type="button" class="btn btn-sm btn-danger" ng-click="onDelete('{{this.knowledgeID}}','{{this.knowledgeName}}')">
+                    <i class="icon-trash"></i>
+                    删除
+                  </button>
                 </div>
               </td>
             </tr>
@@ -125,7 +115,7 @@
           <ul class="pagination pull-right no-margin">
             <li class="prev">
               {{#if prePageNum}}
-                <a href="/bank?pageNumber={{prePageNum}}">
+                <a href="/knowledge?pageNumber={{prePageNum}}&systemID={{systemID}}&creator={{creator}}">
                 <i class="icon-double-angle-left"></i>
                 </a>
               {{else}}
@@ -136,12 +126,12 @@
             </li>
             {{#each paginationArray}}
               <li>
-                <a href="/bank?pageNumber={{this}}">{{this}}</a>
+                <a href="/knowledge?pageNumber={{this}}&systemID={{../systemID}}&creator={{../creator}}">{{this}}</a>
               </li>
             {{/each}}
             <li class="next">
               {{#if nextPageNum}}
-                <a href="/bank?pageNumber={{nextPageNum}}">
+                <a href="/knowledge?pageNumber={{nextPageNum}}&systemID={{systemID}}&creator={{creator}}">
                 <i class="icon-double-angle-right"></i>
                 </a>
               {{else}}
@@ -155,57 +145,11 @@
       {{/if}}
     </div>
   </div>
-
-  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="myModal">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">维护知识点</h4>
-        </div>
-        <div class="alert alert-danger store-alert hidden">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <span></span>
-        </div>
-        <form class="form-horizontal" name="myForm" novalidate>
-          <div class="modal-body">
-            <div class="form-group">
-              <label class="col-sm-2 control-label">系统类别</label>
-              <div class="col-sm-10">
-                <select class="form-control" ng-model="model.selectedSystem4Search" ng-options="system as system.systemName for system in model.systemList4Search"></select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-2 control-label">知识点名称</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" maxlength="50" name="knowledgeName" ng-model="model.knowledgeName" required placeholder="请输入知识点名称">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">知识点内容</label>
-              <div class="col-sm-10">
-                <textarea class="form-control" maxlength="500" id="knowledgeContent" name="knowledgeContent" ng-model="model.knowledgeContent" required placeholder="请输入知识点内容"></textarea>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">实验步骤</label>
-              <div class="col-sm-10">
-                <textarea class="form-control" maxlength="500" id="experimentStep" name="experimentStep" ng-model="model.experimentStep" required placeholder="请输入实验步骤"></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-primary"> <i class="icon-save"></i>提交</button>
-            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal"><i class="icon-remove"></i>关闭</button>
-          </div>
-        </form>
-
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div>
 </div>
 
 <input type="hidden" value="{{currentPageNum}}" id="hidden-currentPageNum">
-<input type="hidden" value="{{dataStatus}}" id="hidden-dataStatus">
+<input type="hidden" value="{{systemID}}" id="hidden-systemID">
+<input type="hidden" value="{{creator}}" id="hidden-creator">
+
+<script src="/javascripts/fileUpload/fileUpload.js"></script>
 <script src="/javascripts/view/knowledge.js"></script>

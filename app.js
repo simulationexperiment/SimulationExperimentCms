@@ -7,6 +7,7 @@ let logger = require('morgan');
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const knowledgeRouter = require('./routes/knowledge');
+const knowledgeEditRouter = require('./routes/knowledgeEdit');
 const exercisesRouter = require('./routes/exercises');
 
 const systemIntroduce4TransportRouter = require('./routes/systemIntroduce4Transport');
@@ -20,7 +21,7 @@ const refusedResourceRouter = require('./routes/refusedResource');
 
 const experimentsRouter = require('./routes/experiments');
 const assignExperimentRouter = require('./routes/assignExperiment');
-const myExperimentRouter = require('./routes/myExperiment');
+// const myExperimentRouter = require('./routes/myExperiment');
 
 const createCompanyRouter = require('./routes/createCompany');
 const acceptConsignmentRouter = require('./routes/acceptConsignment');
@@ -73,6 +74,7 @@ app.use(function (req, res, next) {
 app.use('/', loginRouter);
 app.use('/index', indexRouter);
 app.use('/knowledge', knowledgeRouter);
+app.use('/knowledge/edit', knowledgeEditRouter);
 app.use('/exercises', exercisesRouter);
 app.use('/systemIntroduce/transport', systemIntroduce4TransportRouter);
 app.use('/experimentPurposes/transport', experimentPurposes4TransportRouter);
@@ -83,7 +85,7 @@ app.use('/usingResource', usingResourceRouter);
 app.use('/refusedResource', refusedResourceRouter);
 app.use('/experiments', experimentsRouter);
 app.use('/assignExperiment', assignExperimentRouter);
-app.use('/myExperiment', myExperimentRouter);
+// app.use('/myExperiment', myExperimentRouter);
 app.use('/createCompany', createCompanyRouter);
 app.use('/acceptConsignment', acceptConsignmentRouter);
 app.use('/transportationMonitoring', transportationMonitoringRouter);

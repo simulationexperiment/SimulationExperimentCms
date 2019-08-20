@@ -1,0 +1,65 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <i class="icon-home home-icon"></i>
+      <a href="/index">主页</a>
+    </li>
+    <li>
+      <a href="/bank">理论回顾</a>
+    </li>
+    <li class="active">知识点编辑</li>
+  </ul>
+</div>
+
+<div class="page-content" ng-app="myApp" ng-controller="myCtrl">
+  <div class="page-header">
+    <h1>
+      理论回顾
+      <small>
+        <i class="icon-double-angle-right"></i>
+        知识点编辑
+      </small>
+    </h1>
+  </div>
+  <div class="row edit-content">
+    <div class="col-xs-12">
+      <div class="edit-info">
+        <div class="detail-content">
+          <form class="form-horizontal" name="myForm" novalidate>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">系统类别</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedSystem" ng-options="system as system.systemName for system in model.systemList"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">知识点名称</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" maxlength="25" name="knowledgeName" ng-model="model.knowledgeName" required placeholder="请输入知识点名称">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">知识点内容</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" maxlength="500" id="knowledgeContent" name="knowledgeContent" ng-model="model.knowledgeContent" required placeholder="请输入知识点内容"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <a href="/knowledge" class="btn btn-default"><i class="icon-reply"></i>返回</a>
+                <button type="button" class="btn btn-success" ng-disabled="(myForm.knowledgeName.$pristine && model.add)
+                                                                          || (myForm.knowledgeName.$dirty && myForm.knowledgeName.$invalid)
+                                                                          || model.selectedSystem.systemID == 0" ng-click="onSubmit()">
+                  <i class="icon-save"></i>提交
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" value="{{knowledgeID}}" id="hidden-knowledgeID">
+</div>
+
+<script src="/javascripts/view/knowledgeEdit.js"></script>
