@@ -10,17 +10,12 @@ const knowledgeRouter = require('./routes/knowledge');
 const knowledgeEditRouter = require('./routes/knowledgeEdit');
 const exercisesRouter = require('./routes/exercises');
 const exercisesEditRouter = require('./routes/exercisesEdit');
-
-
 const systemIntroduce4TransportRouter = require('./routes/systemIntroduce4Transport');
 const experimentPurposes4TransportRouter = require('./routes/experimentPurposes4Transport');
 const experimentRequirement4TransportRouter = require('./routes/experimentRequirement4Transport');
-
 const systemIntroduce4StorageRouter = require('./routes/systemIntroduce4Storage');
 const experimentPurposes4StorageRouter = require('./routes/experimentPurposes4Storage');
 const experimentRequirement4StorageRouter = require('./routes/experimentRequirement4Storage');
-
-
 const myResourceRouter = require('./routes/myResource');
 const waitingResourceRouter = require('./routes/waitingResource');
 const usingResourceRouter = require('./routes/usingResource');
@@ -32,6 +27,10 @@ const acceptConsignmentRouter = require('./routes/acceptConsignment');
 const transportationMonitoringRouter = require('./routes/transportationMonitoring');
 const transportationRouter = require('./routes/transportation');
 const costAccountingRouter = require('./routes/costAccounting');
+const stockInRouter = require('./routes/stockIn');
+const stockCountingRouter = require('./routes/stockCounting');
+const deliveryRouter = require('./routes/delivery');
+const stockOutRouter = require('./routes/stockOut');
 const experimentReportRouter = require('./routes/experimentReport');
 const experimentReviewRouter = require('./routes/experimentReview');
 const experimentScoreRouter = require('./routes/experimentScore');
@@ -74,15 +73,12 @@ app.use('/knowledge', knowledgeRouter);
 app.use('/knowledge/edit', knowledgeEditRouter);
 app.use('/exercises', exercisesRouter);
 app.use('/exercises/edit', exercisesEditRouter);
-
 app.use('/systemIntroduce/transport', systemIntroduce4TransportRouter);
 app.use('/experimentPurposes/transport', experimentPurposes4TransportRouter);
 app.use('/experimentRequirement/transport', experimentRequirement4TransportRouter);
-
 app.use('/systemIntroduce/storage', systemIntroduce4StorageRouter);
 app.use('/experimentPurposes/storage', experimentPurposes4StorageRouter);
 app.use('/experimentRequirement/storage', experimentRequirement4StorageRouter);
-
 app.use('/myResource', myResourceRouter);
 app.use('/waitingResource', waitingResourceRouter);
 app.use('/usingResource', usingResourceRouter);
@@ -94,6 +90,10 @@ app.use('/acceptConsignment', acceptConsignmentRouter);
 app.use('/transportationMonitoring', transportationMonitoringRouter);
 app.use('/transportation', transportationRouter);
 app.use('/costAccounting', costAccountingRouter);
+app.use('/stockIn', stockInRouter);
+app.use('/stockCounting', stockCountingRouter);
+app.use('/delivery', deliveryRouter);
+app.use('/stockOut', stockOutRouter);
 app.use('/experimentReport', experimentReportRouter);
 app.use('/experimentReview', experimentReviewRouter);
 app.use('/experimentScore', experimentScoreRouter);
