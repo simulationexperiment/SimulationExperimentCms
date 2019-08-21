@@ -27,55 +27,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.post('/', function (req, res, next) {
-  let service = new commonService.commonInvoke('knowledge');
-  let data = {
-    systemID: req.body.systemID,
-    knowledgeName: req.body.knowledgeName,
-    knowledgeContent: req.body.knowledgeContent,
-    loginUser: req.body.loginUser
-  };
-
-  service.add(data, function (result) {
-    if(result.err){
-      res.json({
-        err: true,
-        msg: result.msg
-      });
-    }else{
-      res.json({
-        err: !result.content.result,
-        msg: result.content.responseMessage
-      });
-    }
-  });
-});
-
-router.put('/', function (req, res, next) {
-  let service = new commonService.commonInvoke('knowledge');
-  let data = {
-    knowledgeID: req.body.knowledgeID,
-    systemID: req.body.systemID,
-    knowledgeName: req.body.knowledgeName,
-    knowledgeContent: req.body.knowledgeContent,
-    loginUser: req.body.loginUser
-  };
-
-  service.change(data, function (result) {
-    if(result.err){
-      res.json({
-        err: true,
-        msg: result.msg
-      });
-    }else{
-      res.json({
-        err: !result.content.result,
-        msg: result.content.responseMessage
-      });
-    }
-  });
-});
-
 router.delete('/', function (req, res, next) {
   let service = new commonService.commonInvoke('knowledge');
   let knowledgeID = req.query.knowledgeID;

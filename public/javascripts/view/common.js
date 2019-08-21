@@ -70,77 +70,6 @@ function getActivePath() {
   return pathname;
 }
 
-// function alertMessage(msg) {
-//   var html = '<div class="modal fade" tabindex="-1" role="dialog" id="dialog-alert-message">\n' +
-//       '  <div class="modal-dialog" role="document">\n' +
-//       '    <div class="modal-content">\n' +
-//       '      <div class="modal-header">\n' +
-//       '        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n' +
-//       '        <h4 class="modal-title">系统提示</h4>\n' +
-//       '      </div>\n' +
-//       '      <div class="modal-body">\n' +
-//       '        <p>' + msg + '</p>\n' +
-//       '      </div>\n' +
-//       '    </div>\n' +
-//       '  </div>\n' +
-//       '</div>';
-//
-//   var dialog = $('#dialog-alert-message');
-//   if(dialog.length === 0){
-//     $('.page-content').after(html);
-//   }
-//
-//   $('#dialog-alert-message').modal('show');
-//
-// }
-//
-// function showMessage(msg) {
-//   $('.alert-warning').removeClass('hidden');
-//   $('.alert-warning span').text(msg);
-// }
-
-// function hiddenMessage() {
-//   $('.alert-warning').addClass('hidden');
-//   $('.alert-warning span').text('');
-// }
-
-// function propAlert(msg, selector) {
-//   var html = '<div class="modal fade" tabindex="-1" role="dialog" id="dialog-alert-message">\n' +
-//     '  <div class="modal-dialog" role="document">\n' +
-//     '    <div class="modal-content">\n' +
-//     '      <div class="modal-header">\n' +
-//     '        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n' +
-//     '        <h4 class="modal-title">系统提示</h4>\n' +
-//     '      </div>\n' +
-//     '      <div class="modal-body">\n' +
-//     '        <p>' + msg + '</p>\n' +
-//     '      </div>\n' +
-//     '    </div>\n' +
-//     '  </div>\n' +
-//     '</div>';
-//
-//   var dialog = $('#dialog-alert-message');
-//   if(dialog.length === 0){
-//     $('.page-content').after(html);
-//   }else{
-//     $('#dialog-alert-message .modal-body p').text(msg);
-//   }
-//
-//   $('#dialog-alert-message').modal('show');
-//
-//   setTimeout(function () {
-//     $('#dialog-alert-message').modal('hide');
-//     // $('#dialog-alert-message').remove();
-//     if(selector !== undefined){
-//       $(selector).parent().parent().addClass('has-error');
-//     }
-//   }, 2000);
-// }
-//
-// function resetInputStatus(selector) {
-//   $(selector).parent().parent().removeClass('has-error');
-// }
-
 function setPaginationStatus() {
   var currentPageNum = $('#hidden-currentPageNum').val();
   if(currentPageNum !== undefined){
@@ -167,22 +96,22 @@ function setPaginationStatus() {
 
 function addCommonEvent() {
   $('li.logout').click(function () {
-    delCookie('bwa.user');
+    delCookie('secms.user');
     location.href = '/';
   });
 }
 
 function showLoginUser() {
-  let cookie = getCookie('bwa.user');
+  let cookie = getCookie('secms.user');
   if(cookie !== null){
     let loginUser = JSON.parse(cookie);
     $('#login-user-photo').attr('src', loginUser.adminPhoto);
-    $('li.light-blue span.user-info>span').text(loginUser.adminName);
+    $('li.light-blue span.user-info>span').text(loginUser.fullName);
   }
 }
 
 function getLoginUserInfo() {
-  var cookie = getCookie('bwa.user');
+  var cookie = getCookie('secms.user');
   if(cookie !== null){
     return JSON.parse(cookie);
   }
@@ -191,10 +120,10 @@ function getLoginUserInfo() {
 }
 
 function getLoginUser() {
-  var cookie = getCookie('bwa.user');
+  var cookie = getCookie('secms.user');
   if(cookie !== null){
     var loginUser = JSON.parse(cookie);
-    return loginUser.adminID;
+    return loginUser.userID;
   }
 
   return 'unknown';

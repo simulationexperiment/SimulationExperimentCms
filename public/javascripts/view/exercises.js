@@ -5,153 +5,161 @@ app.controller('myCtrl', function ($scope, $http) {
     systemList4Search: [{systemID: 0, systemName: '全部'}],
 
     selectedKnowledge4Search: null,
-    knowledgeList4Search: [{knowledgeCode: 0, knowledgeName: '全部'}],
+    knowledgeList4Search: [{knowledgeID: 0, knowledgeName: '全部'}],
 
     selectedCreator: null,
     teacherList4Search: [{teacherID: 0, teacherName: '全部'}],
-
-    selectedSystem: null,
-    systemList: [{systemID: 0, systemName: '请选择所属系统'}],
-
-    selectedExercisesType: null,
-    exercisesTypeList: [{exercisesTypeCode: 0, exercisesTypeName: '请选择习题类型'}],
-
-    selectedCourse: null,
-    courseList: [{courseCode: 0, courseName: '请选择所属课程'}],
-
-    selectedKnowledge: null,
-    knowledgeList: [{knowledgeCode: 0, knowledgeName: '请选择所属知识点'}],
-
-    selectedExperiment: null,
-    experimentList: [{experimentCode: 0, experimentName: '请选择所属实验'}],
   };
 
   $scope.initPage = function () {
-    CKEDITOR.replace( 'exercisesContent');
     $scope.loadSystem();
     $scope.loadTeachers();
-    $scope.loadExercisesType();
-    $scope.loadCourse();
-    $scope.loadKnowledge();
-    $scope.loadExperiment();
     $scope.setDefaultOption();
   };
 
   $scope.setDefaultOption = function(){
-      $scope.model.selectedSystem = $scope.model.systemList[0];
       $scope.model.selectedSystem4Search = $scope.model.systemList4Search[0];
       $scope.model.selectedKnowledge4Search = $scope.model.knowledgeList4Search[0];
       $scope.model.selectedCreator = $scope.model.teacherList4Search[0];
-      $scope.model.selectedExercisesType = $scope.model.exercisesTypeList[0];
-      $scope.model.selectedCourse = $scope.model.courseList[0];
-      $scope.model.selectedKnowledge = $scope.model.knowledgeList[0];
-      $scope.model.selectedExperiment = $scope.model.experimentList[0];
   };
 
-  //todo 调用API获取数据
   $scope.loadSystem = function() {
-    $scope.model.systemList.push({systemID: 1, systemName: '3D仓储'});
-    $scope.model.systemList.push({systemID: 2, systemName: '3D运输'});
-    $scope.model.systemList4Search.push({systemID: 1, systemName: '3D仓储'});
-    $scope.model.systemList4Search.push({systemID: 2, systemName: '3D运输'});
+    $http.get('/common/system').then(function successCallback (response) {
+      if(response.data.err){
+        bootbox.alert(response.data.msg);
+        return false;
+      }
+      if(response.data.systemList === null){
+        return false;
+      }
+      let systemID = document.getElementById('hidden-systemID').value;
+      angular.forEach(response.data.systemList, function (system) {
+        $scope.model.systemList4Search.push({
+          systemID: system.systemID,
+          systemName: system.systemName
+        });
+      });
+
+      angular.forEach($scope.model.systemList4Search, function (system) {
+        if(parseInt(systemID) === system.systemID){
+          $scope.model.selectedSystem4Search = system;
+        }
+      });
+
+      $scope.loadKnowledge();
+    }, function errorCallback(response) {
+      bootbox.alert('网络异常，请检查网络设置');
+    });
   };
 
-  //todo 调用API获取数据
   $scope.loadTeachers = function() {
-    $scope.model.teacherList4Search.push({teacherID: 1, teacherName: '教师1'});
-    $scope.model.teacherList4Search.push({teacherID: 2, teacherName: '教师2'});
-    $scope.model.teacherList4Search.push({teacherID: 3, teacherName: '教师3'});
+    $http.get('/common/teacher').then(function successCallback (response) {
+      if(response.data.err){
+        bootbox.alert(response.data.msg);
+        return false;
+      }
+      if(response.data.teacherList === null){
+        return false;
+      }
+      let creatorID = document.getElementById('hidden-creator').value;
+      angular.forEach(response.data.teacherList, function (teacher) {
+        $scope.model.teacherList4Search.push({
+          teacherID: teacher.userID,
+          teacherName: teacher.fullName
+        });
+      });
+
+      angular.forEach($scope.model.teacherList4Search, function (teacher) {
+        if(parseInt(creatorID) === teacher.teacherID){
+          $scope.model.selectedCreator = teacher;
+        }
+      });
+    }, function errorCallback(response) {
+      bootbox.alert('网络异常，请检查网络设置');
+    });
   };
 
-  //todo 调用API获取数据
-  $scope.loadExercisesType = function() {
-    $scope.model.exercisesTypeList.push({exercisesTypeCode: 1, exercisesTypeName: '单选'});
-    $scope.model.exercisesTypeList.push({exercisesTypeCode: 2, exercisesTypeName: '多选'});
-    $scope.model.exercisesTypeList.push({exercisesTypeCode: 3, exercisesTypeName: '填空'});
-    $scope.model.exercisesTypeList.push({exercisesTypeCode: 4, exercisesTypeName: '判断'});
-    $scope.model.exercisesTypeList.push({exercisesTypeCode: 5, exercisesTypeName: '简答'});
-    $scope.model.exercisesTypeList.push({exercisesTypeCode: 6, exercisesTypeName: '论述'});
-    $scope.model.exercisesTypeList.push({exercisesTypeCode: 7, exercisesTypeName: '计算'});
-    $scope.model.exercisesTypeList.push({exercisesTypeCode: 8, exercisesTypeName: '案例分析'});
-  };
-
-  //todo 调用API获取数据
-  $scope.loadCourse = function() {
-    $scope.model.courseList.push({courseCode: 1, courseName: '物流企业运营实训'});
-    $scope.model.courseList.push({courseCode: 2, courseName: '邮政快递企业综合实训'});
-    $scope.model.courseList.push({courseCode: 3, courseName: '现代生产物流智能仿真实验'});
-  };
-
-  //todo 调用API获取数据
   $scope.loadKnowledge = function() {
-    $scope.model.knowledgeList.push({knowledgeCode: 1, knowledgeName: '知识点1'});
-    $scope.model.knowledgeList.push({knowledgeCode: 2, knowledgeName: '知识点2'});
-    $scope.model.knowledgeList.push({knowledgeCode: 3, knowledgeName: '知识点3'});
+    $scope.model.knowledgeList4Search.splice(1, $scope.model.knowledgeList4Search.length);
+    $http.get('/common/knowledge?systemID=' + $scope.model.selectedSystem4Search.systemID).then(function successCallback (response) {
+      if(response.data.err){
+        bootbox.alert(response.data.msg);
+        return false;
+      }
+      if(response.data.knowledgeList === null){
+        return false;
+      }
+      let knowledgeID = document.getElementById('hidden-knowledgeID').value;
+      angular.forEach(response.data.knowledgeList, function (knowledge) {
+        $scope.model.knowledgeList4Search.push({
+          knowledgeID: knowledge.knowledgeID,
+          knowledgeName: knowledge.knowledgeName
+        });
+      });
 
-    $scope.model.knowledgeList4Search.push({knowledgeCode: 1, knowledgeName: '知识点1'});
-    $scope.model.knowledgeList4Search.push({knowledgeCode: 2, knowledgeName: '知识点2'});
-    $scope.model.knowledgeList4Search.push({knowledgeCode: 3, knowledgeName: '知识点3'});
+      let isMaped= false;
+      angular.forEach($scope.model.knowledgeList4Search, function (knowledge) {
+        if(parseInt(knowledgeID) === knowledge.knowledgeID){
+          $scope.model.selectedKnowledge4Search = knowledge;
+          isMaped = true;
+        }
+      });
+      if(!isMaped){
+        $scope.model.selectedKnowledge4Search = $scope.model.knowledgeList4Search[0];
+      }
+    }, function errorCallback(response) {
+      bootbox.alert('网络异常，请检查网络设置');
+    });
   };
 
-  //todo 调用API获取数据
-  $scope.loadExperiment = function() {
-    $scope.model.experimentList.push({experimentCode: 1, experimentName: '实物实验'});
-    $scope.model.experimentList.push({experimentCode: 1, experimentName: '虚拟实验'});
-    $scope.model.experimentList.push({experimentCode: 1, experimentName: '演示实验'});
-    $scope.model.experimentList.push({experimentCode: 1, experimentName: '客户端实验'});
-    $scope.model.experimentList.push({experimentCode: 1, experimentName: '远程实验'});
-    $scope.model.experimentList.push({experimentCode: 1, experimentName: '三维仿真实验'});
+  $scope.onSystemChange = function(){
+    $scope.loadKnowledge();
   };
 
-  $scope.onShowKnowledgeContent = function(knowledgeContent){
-    let a = '';
-    CKEDITOR.instances.knowledgeContent.setData(knowledgeContent);
+  $scope.onSearch = function () {
+    location.href = '/exercises?systemID=' + $scope.model.selectedSystem4Search.systemID
+        + '&knowledgeID=' + $scope.model.selectedKnowledge4Search.knowledgeID
+        + '&creator=' + $scope.model.selectedCreator.teacherID;
   };
 
-  $scope.onShowExperimentStep = function(experimentStep){
-    CKEDITOR.instances.experimentStep.setData(experimentStep);
+  $scope.onShowExercisesContent = function(systemName, courseName, exercisesContent){
+    bootbox.alert({
+      title: systemName + ' ' + courseName + ' 习题内容',
+      message: exercisesContent
+    });
   };
 
-  $scope.onChange = function (knowledgeID, knowledgeName, knowledgeContent, experimentStep) {
-    CKEDITOR.instances.knowledgeContent.setData(knowledgeContent);
-    CKEDITOR.instances.experimentStep.setData(experimentStep);
-
-    let content = CKEDITOR.instances.knowledgeContent.getData();
-    let step = CKEDITOR.instances.experimentStep.getData();
-
+  $scope.onChange = function (exercisesID) {
+    location.href = '/exercises/edit?exercisesID='+exercisesID;
   };
 
-  $scope.onDelete = function (knowledgeID, knowledgeName) {
-    // bootbox.confirm({
-    //   message: '您确定要将' + bankName + '修改为删除状态吗？',
-    //   buttons: {
-    //     confirm: {
-    //       label: '确认',
-    //       className: 'btn-danger'
-    //     },
-    //     cancel: {
-    //       label: '取消',
-    //       className: 'btn-default'
-    //     }
-    //   },
-    //   callback: function (result) {
-    //     if(result) {
-    //       $http.put('/bank/changeStatus', {
-    //         bankID:  bankID,
-    //         dataStatus: 'D',
-    //         loginUser: getLoginUser()
-    //       }).then(function successCallback(response) {
-    //         if(response.data.err){
-    //           bootbox.alert(response.data.msg);
-    //           return false;
-    //         }
-    //         location.reload();
-    //       }, function errorCallback(response) {
-    //         bootbox.alert('网络异常，请检查网络设置');
-    //       });
-    //     }
-    //   }
-    // });
+  $scope.onDelete = function (exercisesID) {
+    bootbox.confirm({
+      message: '您确定要删除该习题吗？',
+      buttons: {
+        confirm: {
+          label: '确认',
+          className: 'btn-danger'
+        },
+        cancel: {
+          label: '取消',
+          className: 'btn-default'
+        }
+      },
+      callback: function (result) {
+        if(result) {
+          $http.delete('/exercises?exercisesID=' + exercisesID).then(function successCallback(response) {
+            if(response.data.err){
+              bootbox.alert(response.data.msg);
+              return false;
+            }
+            location.reload();
+          }, function errorCallback(response) {
+            bootbox.alert('网络异常，请检查网络设置');
+          });
+        }
+      }
+    });
   };
 
   $scope.initPage();

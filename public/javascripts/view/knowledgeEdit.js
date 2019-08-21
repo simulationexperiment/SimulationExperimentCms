@@ -92,12 +92,11 @@ app.controller('myCtrl', function ($scope, $http) {
   };
 
   $scope.addData = function () {
-    $http.post('/knowledge', {
+    $http.post('/knowledge/edit', {
       systemID: $scope.model.selectedSystem.systemID,
       knowledgeName: $scope.model.knowledgeName,
       knowledgeContent: $scope.model.knowledgeContent,
-      // loginUser: getLoginUser()
-      loginUser: '1'
+      loginUser: getLoginUser()
     }).then(function successCallback(response) {
       if(response.data.err){
         bootbox.alert(response.data.msg);
@@ -110,13 +109,12 @@ app.controller('myCtrl', function ($scope, $http) {
   };
 
   $scope.changeData = function () {
-    $http.put('/knowledge', {
+    $http.put('/knowledge/edit', {
       knowledgeID: $scope.model.knowledgeID,
       systemID: $scope.model.selectedSystem.systemID,
       knowledgeName: $scope.model.knowledgeName,
       knowledgeContent: $scope.model.knowledgeContent,
-      // loginUser: getLoginUser()
-      loginUser: '1'
+      loginUser: getLoginUser()
     }).then(function successCallback(response) {
       if(response.data.err){
         bootbox.alert(response.data.msg);

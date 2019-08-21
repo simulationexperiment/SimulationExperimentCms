@@ -20,7 +20,7 @@ router.post('/', function (req, res, next) {
       res.json({
         err: !result.content.result,
         msg: result.content.responseMessage,
-        adminInfo: result.content.responseData
+        userInfo: result.content.responseData
       });
     }
   })

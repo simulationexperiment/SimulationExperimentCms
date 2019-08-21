@@ -1,49 +1,42 @@
 let express = require('express');
 let commonService = require('../service/commonService');
+let sysConfig = require('../config/sysConfig');
 let router = express.Router();
 
 router.get('/', function(req, res, next) {
-  // let service = new commonService.commonInvoke('bank');
-  // let pageNumber = req.query.pageNumber;
-  // let dataStatus = req.query.dataStatus;
-  // if(pageNumber === undefined){
-  //   pageNumber = 1;
-  // }
-  // if(dataStatus === undefined){
-  //   dataStatus = 'A';
-  // }
-  //
-  // service.getPageDataWithStatus(pageNumber, dataStatus, function (result) {
-  //   let renderData = commonService.buildRenderData('银行管理', pageNumber, result);
-  //   if(renderData.dataList !== null){
-  //     for(let bank of renderData.dataList){
-  //       if(bank.dataStatus === 'N'){
-  //         bank.isNormal = true;
-  //       }
-  //       if(bank.dataStatus === 'F'){
-  //         bank.isFrozen = true;
-  //       }
-  //       if(bank.dataStatus === 'D'){
-  //         bank.isDelete = true;
-  //       }
-  //     }
-  //   }
-  //
-  //   renderData.dataStatus = dataStatus;
-  //   res.render('knowledge', renderData);
-  // });
-  res.render('exercises', {title: '习题库'});
+  let service = new commonService.commonInvoke('exercises');
+  let pageNumber = req.query.pageNumber;
+  let systemID = req.query.systemID;
+  let knowledgeID = req.query.knowledgeID;
+  let creator = req.query.creator;
+  if(pageNumber === undefined){
+    pageNumber = 1;
+  }
+  if(systemID === undefined){
+    systemID = 0;
+  }
+  if(knowledgeID === undefined){
+    knowledgeID = 0;
+  }
+  if(creator === undefined){
+    creator = 0;
+  }
+  let parameter = pageNumber + '/' + sysConfig.pageSize + '/' + systemID + '/' + knowledgeID + '/' + creator;
+
+  service.get(parameter, function (result) {
+    let renderData = commonService.buildRenderData('习题库管理', pageNumber, result);
+    renderData.systemID = systemID;
+    renderData.knowledgeID = knowledgeID;
+    renderData.creator = creator;
+    res.render('exercises', renderData);
+  });
 });
 
-router.put('/changeStatus', function (req, res, next) {
-  let service = new commonService.commonInvoke('changeStatus4Bank');
-  let data = {
-    bankID: req.body.bankID,
-    dataStatus: req.body.dataStatus,
-    loginUser: req.body.loginUser
-  };
+router.delete('/', function (req, res, next) {
+  let service = new commonService.commonInvoke('exercises');
+  let exercisesID = req.query.exercisesID;
 
-  service.change(data, function (result) {
+  service.delete(exercisesID, function (result) {
     if(result.err){
       res.json({
         err: true,
@@ -57,5 +50,6 @@ router.put('/changeStatus', function (req, res, next) {
     }
   });
 });
+
 
 module.exports = router;
