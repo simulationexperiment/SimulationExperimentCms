@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
   let systemID = req.query.systemID;
   let courseID = req.query.courseID;
   let resourceTypeID = req.query.resourceTypeID;
+  let resourceStatusID = req.query.resourceStatusID;
   if(pageNumber === undefined){
     pageNumber = 1;
   }
@@ -21,13 +22,17 @@ router.get('/', function(req, res, next) {
   if(resourceTypeID === undefined){
     resourceTypeID = 0;
   }
-  let parameter = pageNumber + '/' + sysConfig.pageSize + '/' + systemID + '/' + courseID + '/' + resourceTypeID;
+  if(resourceStatusID === undefined){
+    resourceStatusID = 'null';
+  }
+  let parameter = pageNumber + '/' + sysConfig.pageSize + '/' + systemID + '/' + courseID + '/' + resourceTypeID + '/' + resourceStatusID;
 
   service.get(parameter, function (result) {
     let renderData = commonService.buildRenderData('知识点管理', pageNumber, result);
     renderData.systemID = systemID;
     renderData.courseID = courseID;
     renderData.resourceTypeID = resourceTypeID;
+    renderData.resourceStatusID = resourceStatusID;
     res.render('myResource', renderData);
   });
 });

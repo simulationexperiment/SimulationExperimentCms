@@ -6,44 +6,100 @@ app.controller('myCtrl', function ($scope, $http) {
     systemList4Search: [{systemID: 0, systemName: '全部'}],
     //查询条件：所属课程
     selectedCourse4Search: null,
-    courseList4Search: [{courseCode: 0, courseName: '全部'}],
+    courseList4Search: [{courseID: 0, courseName: '全部'}],
     //查询条件：资源类型
     selectedSourceType4Search: null,
-    sourceTypeList4Search: [{sourceTypeID: 0, sourceTypeName: '全部'}]
+    sourceTypeList4Search: [{sourceTypeID: 0, sourceTypeName: '全部'}],
   };
 
   $scope.initPage = function () {
     $scope.loadSystem();
     $scope.loadCourse();
     $scope.loadSourceType();
-    $scope.setDefaultOption();
+  };
+
+  $scope.loadSystem = function() {
+    $http.get('/common/system').then(function successCallback (response) {
+      if(response.data.err){
+        bootbox.alert(response.data.msg);
+        return false;
+      }
+      if(response.data.systemList === null){
+        return false;
+      }
+      let systemID = document.getElementById('hidden-systemID').value;
+      angular.forEach(response.data.systemList, function (system) {
+        $scope.model.systemList4Search.push({
+          systemID: system.systemID,
+          systemName: system.systemName
+        });
+      });
+      angular.forEach($scope.model.systemList4Search, function (system) {
+        if(system.systemID === parseInt(systemID)){
+          $scope.model.selectedSystem4Search = system;
+        }
+      });
+    }, function errorCallback(response) {
+      bootbox.alert('网络异常，请检查网络设置');
+    });
+  };
+
+  $scope.loadCourse = function() {
+    $http.get('/common/course').then(function successCallback (response) {
+      if(response.data.err){
+        bootbox.alert(response.data.msg);
+        return false;
+      }
+      if(response.data.courseList === null){
+        return false;
+      }
+      let courseID = document.getElementById('hidden-courseID').value;
+      angular.forEach(response.data.courseList, function (course) {
+        $scope.model.courseList4Search.push({
+          courseID: course.courseID,
+          courseName: course.courseName
+        });
+      });
+      angular.forEach($scope.model.courseList4Search, function (course) {
+        if(course.courseID === parseInt(courseID)){
+          $scope.model.selectedCourse4Search = course;
+        }
+      });
+    }, function errorCallback(response) {
+      bootbox.alert('网络异常，请检查网络设置');
+    });
   };
 
   $scope.loadSourceType = function(){
-    $scope.model.sourceTypeList4Search.push({sourceTypeID: 1, sourceTypeName: 'PDF'});
-    $scope.model.sourceTypeList4Search.push({sourceTypeID: 2, sourceTypeName: 'Image'});
-    $scope.model.sourceTypeList4Search.push({sourceTypeID: 3, sourceTypeName: 'MP4'});
-    $scope.model.sourceTypeList4Search.push({sourceTypeID: 4, sourceTypeName: 'ZIP'});
+    $http.get('/common/resourceType').then(function successCallback (response) {
+      if(response.data.err){
+        bootbox.alert(response.data.msg);
+        return false;
+      }
+      if(response.data.resourceTypeList === null){
+        return false;
+      }
+      let resourceTypeID = document.getElementById('hidden-sourceTypeID').value;
+      angular.forEach(response.data.resourceTypeList, function (resourceType) {
+        $scope.model.sourceTypeList4Search.push({
+          sourceTypeID: resourceType.sourceTypeID,
+          sourceTypeName: resourceType.sourceTypeName
+        });
+      });
+      angular.forEach($scope.model.sourceTypeList4Search, function (sourceType) {
+        if(sourceType.sourceTypeID === parseInt(resourceTypeID)){
+          $scope.model.selectedSourceType4Search = sourceType;
+        }
+      });
+    }, function errorCallback(response) {
+      bootbox.alert('网络异常，请检查网络设置');
+    });
   };
 
-  $scope.setDefaultOption = function(){
-    //查询条件默认值设置
-    $scope.model.selectedSystem4Search = $scope.model.systemList4Search[0];
-    $scope.model.selectedCourse4Search = $scope.model.courseList4Search[0];
-    $scope.model.selectedSourceType4Search = $scope.model.sourceTypeList4Search[0];
-  };
-
-  //todo 调用API获取数据
-  $scope.loadSystem = function() {
-    $scope.model.systemList4Search.push({systemID: 1, systemName: '3D仓储'});
-    $scope.model.systemList4Search.push({systemID: 2, systemName: '3D运输'});
-  };
-
-  //todo 调用API获取数据
-  $scope.loadCourse = function() {
-    $scope.model.courseList4Search.push({courseCode: 1, courseName: '物流企业运营实训'});
-    $scope.model.courseList4Search.push({courseCode: 2, courseName: '邮政快递企业综合实训'});
-    $scope.model.courseList4Search.push({courseCode: 3, courseName: '现代生产物流智能仿真实验'});
+  $scope.onSearch = function () {
+    location.href = '/usingResource?systemID=' + $scope.model.selectedSystem4Search.systemID
+        + '&courseID=' + $scope.model.selectedCourse4Search.courseID
+        + '&resourceTypeID=' + $scope.model.selectedSourceType4Search.sourceTypeID;
   };
 
   $scope.initPage();

@@ -10,14 +10,17 @@ app.controller('myCtrl', function ($scope, $http) {
     //查询条件：资源类型
     selectedSourceType4Search: null,
     sourceTypeList4Search: [{sourceTypeID: 0, sourceTypeName: '全部'}],
+    //查询条件：资源类型
+    selectedResourceStatus4Search: null,
+    resourceStatus4Search: [{resourceStatusID: 'null', resourceStatusName: '全部'}],
   };
 
   $scope.initPage = function () {
     $scope.loadSystem();
     $scope.loadCourse();
     $scope.loadSourceType();
+    $scope.loadResourceStatus();
   };
-
 
   $scope.loadSystem = function() {
     $http.get('/common/system').then(function successCallback (response) {
@@ -97,10 +100,23 @@ app.controller('myCtrl', function ($scope, $http) {
     });
   };
 
+  $scope.loadResourceStatus = function(){
+    let resourceStatusID = document.getElementById('hidden-resourceStatusID').value;
+    $scope.model.resourceStatus4Search.push({resourceStatusID: 'P', resourceStatusName: '待审核'});
+    $scope.model.resourceStatus4Search.push({resourceStatusID: 'A', resourceStatusName: '审批通过'});
+    $scope.model.resourceStatus4Search.push({resourceStatusID: 'R', resourceStatusName: '审批未通过'});
+    angular.forEach($scope.model.resourceStatus4Search, function (resourceStatus) {
+      if(resourceStatus.resourceStatusID === resourceStatusID){
+        $scope.model.selectedResourceStatus4Search = resourceStatus;
+      }
+    });
+  };
+
   $scope.onSearch = function () {
     location.href = '/myResource?systemID=' + $scope.model.selectedSystem4Search.systemID
         + '&courseID=' + $scope.model.selectedCourse4Search.courseID
-        + '&resourceTypeID=' + $scope.model.selectedSourceType4Search.sourceTypeID;
+        + '&resourceTypeID=' + $scope.model.selectedSourceType4Search.sourceTypeID
+        + '&resourceStatusID=' + $scope.model.selectedResourceStatus4Search.resourceStatusID;
   };
 
   $scope.onChange = function (resourceID) {

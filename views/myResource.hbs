@@ -5,7 +5,7 @@
       <a href="/index">主页</a>
     </li>
     <li>
-      资源管理
+      教学资源管理
     </li>
     <li class="active">我的资源库</li>
   </ul>
@@ -37,6 +37,11 @@
       <div class="form-group">
         <label for="exampleInputEmail2">资料类型</label>&nbsp;
         <select class="search-control" ng-model="model.selectedSourceType4Search" ng-options="sourceType as sourceType.sourceTypeName for sourceType in model.sourceTypeList4Search"></select>
+      </div>
+      &nbsp;
+      <div class="form-group">
+        <label for="exampleInputEmail2">审核状态</label>&nbsp;
+        <select class="search-control" ng-model="model.selectedResourceStatus4Search" ng-options="resourceStatus as resourceStatus.resourceStatusName for resourceStatus in model.resourceStatus4Search"></select>
       </div>
       &nbsp;
       <button type="button" class="btn btn-sm btn-info btn-search" ng-click="onSearch()">
@@ -155,4 +160,5 @@
 <input type="hidden" value="{{systemID}}" id="hidden-systemID">
 <input type="hidden" value="{{courseID}}" id="hidden-courseID">
 <input type="hidden" value="{{resourceTypeID}}" id="hidden-sourceTypeID">
+<input type="hidden" value="{{resourceStatusID}}" id="hidden-resourceStatusID">
 <script src="/javascripts/view/myResource.js"></script>
