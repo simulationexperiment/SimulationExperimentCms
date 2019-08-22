@@ -11,6 +11,7 @@
       "login": "/api/user/login",
       "knowledge": "/api/knowledge",
       "exercises": "/api/exercises",
+      "teachingResource": "/api/teachingResource",
       "user": "/api/user"
     }
   }

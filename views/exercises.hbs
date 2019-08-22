@@ -128,12 +128,12 @@
             </li>
             {{#each paginationArray}}
               <li>
-                <a href="/exercises?pageNumber={{prePageNum}}&systemID={{../systemID}}&knowledgeID={{../knowledgeID}}&creator={{../creator}}">{{this}}</a>
+                <a href="/exercises?pageNumber={{this}}&systemID={{../systemID}}&knowledgeID={{../knowledgeID}}&creator={{../creator}}">{{this}}</a>
               </li>
             {{/each}}
             <li class="next">
               {{#if nextPageNum}}
-                <a href="/exercises?pageNumber={{prePageNum}}&systemID={{systemID}}&knowledgeID={{knowledgeID}}&creator={{creator}}">
+                <a href="/exercises?pageNumber={{nextPageNum}}&systemID={{systemID}}&knowledgeID={{knowledgeID}}&creator={{creator}}">
                 <i class="icon-double-angle-right"></i>
                 </a>
               {{else}}

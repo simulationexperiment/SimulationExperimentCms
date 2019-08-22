@@ -44,7 +44,7 @@ router.get('/course', function (req, res, next) {
 
 router.get('/resourceType', function (req, res, next) {
   let service = new commonService.commonInvoke('resourceType');
-  let parameter = '1/999/N';
+  let parameter = '1/999';
 
   service.get(parameter, function (result) {
     if(result.err){

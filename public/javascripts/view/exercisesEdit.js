@@ -30,7 +30,6 @@ app.controller('myCtrl', function ($scope, $http) {
   $scope.initPage = function () {
     $scope.initCkEditor();
     $scope.loadData();
-    $scope.setDefaultOption();
   };
 
   $scope.initCkEditor = function(){
@@ -39,10 +38,6 @@ app.controller('myCtrl', function ($scope, $http) {
     CKEDITOR.config.extraPlugins = 'html5video';
     CKEDITOR.config.image_previewText = ' ';
     CKEDITOR.replace( 'exercisesContent');
-  };
-
-  $scope.setDefaultOption = function(){
-    $scope.model.selectedSystem = $scope.model.systemList[0];
   };
 
   $scope.loadData = function(){

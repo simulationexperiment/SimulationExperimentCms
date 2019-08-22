@@ -17,6 +17,7 @@ const systemIntroduce4StorageRouter = require('./routes/systemIntroduce4Storage'
 const experimentPurposes4StorageRouter = require('./routes/experimentPurposes4Storage');
 const experimentRequirement4StorageRouter = require('./routes/experimentRequirement4Storage');
 const myResourceRouter = require('./routes/myResource');
+const myResourceEditRouter = require('./routes/myResourceEdit');
 const waitingResourceRouter = require('./routes/waitingResource');
 const usingResourceRouter = require('./routes/usingResource');
 const refusedResourceRouter = require('./routes/refusedResource');
@@ -80,6 +81,7 @@ app.use('/systemIntroduce/storage', systemIntroduce4StorageRouter);
 app.use('/experimentPurposes/storage', experimentPurposes4StorageRouter);
 app.use('/experimentRequirement/storage', experimentRequirement4StorageRouter);
 app.use('/myResource', myResourceRouter);
+app.use('/myResource/edit', myResourceEditRouter);
 app.use('/waitingResource', waitingResourceRouter);
 app.use('/usingResource', usingResourceRouter);
 app.use('/refusedResource', refusedResourceRouter);
