@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="112f0a34-91be-4ba7-b036-706c59998871" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/javascripts/view/assignExperimentEdit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/assignExperimentEdit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/assignExperimentEdit.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/apiConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/apiConfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/view/assignExperiment.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/view/assignExperiment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/view/experiments.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/view/experiments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/assignExperiment.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/assignExperiment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/assignExperiment.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/assignExperiment.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/ace/ace.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/ace/ace.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/login.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,76 +19,17 @@
     <favorites_list name="SimulationExperimentCms" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49931034">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/routes/assignExperimentEdit.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="128">
-                  <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/views/assignExperimentEdit.hbs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="288">
-                  <caret line="58" column="18" lean-forward="true" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/javascripts/view/assignExperimentEdit.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="361">
-                  <caret line="19" column="34" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="34" />
-                  <folding>
-                    <element signature="e#2226#2965#0" />
-                    <element signature="e#3001#3740#0" />
-                    <element signature="e#3784#4668#0" />
-                    <element signature="e#4530#4540#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public/javascripts/view/assignExperimentEdit.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="182">
-                  <caret line="39" column="32" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="32" />
-                  <folding>
-                    <element signature="e#2183#2922#0" />
-                    <element signature="e#2958#3697#0" />
-                    <element signature="e#3741#4625#0" />
-                    <element signature="e#7165#7335#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/routes/experiments.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="348">
-                  <caret line="22" column="3" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="22" selection-end-column="3" />
-                  <folding>
-                    <element signature="e#1138#1521#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/login.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="49" column="166" selection-start-line="49" selection-start-column="166" selection-end-line="49" selection-end-column="166" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -109,7 +42,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onShowKnowledgeContent</find>
       <find>fileUpload</find>
       <find>上传文件时发生 HTTP 错误</find>
       <find>500</find>
@@ -139,6 +71,7 @@
       <find>.splice(</find>
       <find>experiments</find>
       <find>assignExperimentEditRouter</find>
+      <find>.navbar{</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -147,9 +80,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/routes/knowledge.js" />
-        <option value="$PROJECT_DIR$/routes/knowledgeEdit.js" />
-        <option value="$PROJECT_DIR$/views/exercisesEdit.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/view/exercises.js" />
         <option value="$PROJECT_DIR$/routes/experimentPurposes4Storage.js" />
         <option value="$PROJECT_DIR$/routes/experimentRequirement4Storage.js" />
@@ -167,8 +97,6 @@
         <option value="$PROJECT_DIR$/views/stockOut.hbs" />
         <option value="$PROJECT_DIR$/routes/myResourceEdit.js" />
         <option value="$PROJECT_DIR$/views/exercises.hbs" />
-        <option value="$PROJECT_DIR$/views/myResourceEdit.hbs" />
-        <option value="$PROJECT_DIR$/public/javascripts/view/exercisesEdit.js" />
         <option value="$PROJECT_DIR$/routes/exercisesEdit.js" />
         <option value="$PROJECT_DIR$/public/javascripts/view/myResourceEdit.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
@@ -198,6 +126,11 @@
         <option value="$PROJECT_DIR$/routes/common.js" />
         <option value="$PROJECT_DIR$/public/javascripts/view/assignExperimentEdit.js" />
         <option value="$PROJECT_DIR$/views/assignExperimentEdit.hbs" />
+        <option value="$PROJECT_DIR$/views/myResourceEdit.hbs" />
+        <option value="$PROJECT_DIR$/views/exercisesEdit.hbs" />
+        <option value="$PROJECT_DIR$/public/javascripts/view/exercisesEdit.js" />
+        <option value="$PROJECT_DIR$/public/stylesheets/ace/ace.min.css" />
+        <option value="$PROJECT_DIR$/views/login.hbs" />
       </list>
     </option>
   </component>
@@ -236,19 +169,19 @@
               <item name="SimulationExperimentCms" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimulationExperimentCms" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimulationExperimentCms" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimulationExperimentCms" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
+              <item name="ace" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimulationExperimentCms" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimulationExperimentCms" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -321,7 +254,7 @@
       <workItem from="1565708968784" duration="47974000" />
       <workItem from="1566092057264" duration="5109000" />
       <workItem from="1566125947114" duration="12660000" />
-      <workItem from="1566289978800" duration="54714000" />
+      <workItem from="1566289978800" duration="55579000" />
     </task>
     <task id="LOCAL-00001" summary="开发框架以及部分UI完成">
       <created>1566012079115</created>
@@ -386,24 +319,38 @@
       <option name="project" value="LOCAL" />
       <updated>1566526142899</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="1. 已布置实验相关功能开发完成">
+      <created>1566546741369</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1566546741369</updated>
+    </task>
+    <task id="LOCAL-00011" summary="1. 修改Bug">
+      <created>1566546935372</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1566546935372</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120797000" />
+    <option name="totallyTimeSpent" value="121662000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49848944" visible="true" weight="0.12597951" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49848944" visible="true" weight="0.22302592" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.50151056" side_tool="true" weight="0.16998191" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.7906433" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32945284" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.225731" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.225731" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -432,7 +379,9 @@
     <MESSAGE value="1. 教学资源管理-我的资源相关功能开发完成" />
     <MESSAGE value="1. 教学资源管理-资源审核相关功能开发完成" />
     <MESSAGE value="1. 参考实验库相关功能开发完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. 参考实验库相关功能开发完成" />
+    <MESSAGE value="1. 已布置实验相关功能开发完成" />
+    <MESSAGE value="1. 修改Bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. 修改Bug" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -444,20 +393,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/delivery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/createCompany.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-785">
-          <caret line="13" column="23" lean-forward="true" selection-end-line="144" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/systemIntroduce4Storage.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -500,13 +435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="26" column="3" lean-forward="true" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/exercises.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="130" column="80" selection-start-line="130" selection-start-column="55" selection-end-line="130" selection-end-column="80" />
         </state>
       </provider>
     </entry>
@@ -672,25 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/assignExperiment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/view/assignExperiment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="108" column="4" lean-forward="true" selection-start-line="108" selection-start-column="4" selection-end-line="108" selection-end-column="4" />
-          <folding>
-            <element signature="e#590#1419#0" />
-            <element signature="e#1455#2283#0" />
-            <element signature="e#2327#3316#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/experimentsEdit.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -733,29 +642,6 @@
         <state relative-caret-position="-2159" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/view/exercisesEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1634">
-          <caret line="110" column="7" lean-forward="true" selection-start-line="110" selection-start-column="7" selection-end-line="110" selection-end-column="7" />
-          <folding>
-            <element signature="e#2580#3349#0" />
-            <element signature="e#4293#5032#0" />
-            <element signature="e#5071#5991#0" />
-            <element signature="e#6035#7439#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/experiments.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="22" column="3" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="22" selection-end-column="3" />
-          <folding>
-            <element signature="e#1138#1521#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
@@ -777,20 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/exercisesEdit.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="75" column="18" lean-forward="true" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/myResourceEdit.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="62" column="67" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/knowledgeEdit.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -805,21 +677,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/assignExperiment.hbs">
+    <entry file="file://$PROJECT_DIR$/routes/experiments.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="196" column="25" lean-forward="true" selection-start-line="196" selection-start-column="25" selection-end-line="196" selection-end-column="25" />
+        <state relative-caret-position="25">
+          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
           <folding>
-            <element signature="e#5632#5639#1#HTML" expanded="true" />
-            <element signature="e#5887#5894#1#HTML" expanded="true" />
+            <element signature="e#1138#1521#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/assignExperimentEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -840,6 +704,87 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="58" column="18" lean-forward="true" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/assignExperimentEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/assignExperiment.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="186" column="18" lean-forward="true" selection-start-line="186" selection-start-column="18" selection-end-line="186" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/assignExperiment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/view/assignExperiment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="115" column="22" lean-forward="true" selection-start-line="115" selection-start-column="22" selection-end-line="115" selection-end-column="22" />
+          <folding>
+            <element signature="e#590#1419#0" />
+            <element signature="e#1455#2283#0" />
+            <element signature="e#2327#3316#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/myResourceEdit.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/exercises.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="130" column="80" selection-start-line="130" selection-start-column="55" selection-end-line="130" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/exercisesEdit.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/view/exercisesEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="35" column="33" lean-forward="true" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+          <folding>
+            <element signature="e#2580#3349#0" />
+            <element signature="e#4293#5032#0" />
+            <element signature="e#5071#5991#0" />
+            <element signature="e#6035#7439#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/ace/ace.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret column="13737" selection-start-column="13737" selection-end-column="13737" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="49" column="166" selection-start-line="49" selection-start-column="166" selection-end-line="49" selection-end-column="166" />
         </state>
       </provider>
     </entry>
