@@ -48,10 +48,10 @@
   <div class="space-6"></div>
   <div class="row">
     <div class="col-xs-12">
-      <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">
+      <a href="/experiments/edit" class="btn btn-sm btn-primary">
         <i class="icon-plus"></i>
         添加
-      </button>
+      </a>
       <div class="space-6"></div>
       <div class="table-header">
         找到{{totalCount}}条数据
@@ -65,7 +65,6 @@
             <th class="center">所属课程</th>
             <th class="center">实验类型</th>
             <th class="center">实验名称</th>
-            <th class="center">操作步骤</th>
             <th class="hidden-480">添加</th>
             <th>
               <i class="icon-time bigger-110 hidden-480"></i>
@@ -82,39 +81,29 @@
           <tbody>
           {{#each dataList}}
             <tr>
-              <td class="center">{{this.bankCode}}</td>
-              <td>{{this.bankCode}}</td>
-              <td>{{this.bankName}}</td>
-              <td>{{this.dataStatusText}}</td>
+              <td class="center">{{this.experimentID}}</td>
+              <td>{{this.systemName}}</td>
+              <td>{{this.courseName}}</td>
+              <td>{{this.experimentTypeName}}</td>
+              <td>{{this.experimentName}}</td>
               <td>{{this.createUser}}</td>
               <td>{{this.createTime}}</td>
               <td>{{this.updateUser}}</td>
               <td>{{this.updateTime}}</td>
               <td>
                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                  <button type="button" class="btn btn-sm btn-primary" ng-click="onChange({{this.bankID}})">
+                  <button type="button" class="btn btn-sm btn-primary" ng-click="onShowExperimentContent('{{this.systemName}}', '{{this.experimentName}}', '{{this.experimentContent}}')">
+                    <i class="icon-eye-open"></i>
+                    查看
+                  </button>
+                  <button type="button" class="btn btn-sm btn-success" ng-click="onChange({{this.experimentID}})">
                     <i class="icon-edit"></i>
                     修改
                   </button>
-                  {{# if this.isNormal}}
-                    <button type="button" class="btn btn-sm btn-danger" ng-click="onDelete('{{this.bankID}}','{{this.bankName}}')">
-                      <i class="icon-trash"></i>
-                      删除
-                    </button>
-                  {{/if}}
-
-                  {{# if this.isFrozen}}
-                    <button type="button" class="btn btn-sm btn-success" ng-click="onRecover('{{this.bankID}}','{{this.bankName}}')">
-                      <i class="icon-reply"></i>
-                      恢复
-                    </button>
-                  {{/if}}
-                  {{# if this.isDelete}}
-                    <button type="button" class="btn btn-sm btn-success" ng-click="onRecover('{{this.bankID}}','{{this.bankName}}')">
-                      <i class="icon-reply"></i>
-                      恢复
-                    </button>
-                  {{/if}}
+                  <button type="button" class="btn btn-sm btn-danger" ng-click="onDelete('{{this.experimentID}}','{{this.experimentName}}')">
+                    <i class="icon-trash"></i>
+                    删除
+                  </button>
                 </div>
               </td>
             </tr>
@@ -127,7 +116,7 @@
           <ul class="pagination pull-right no-margin">
             <li class="prev">
               {{#if prePageNum}}
-                <a href="/bank?pageNumber={{prePageNum}}">
+                <a href="/experiment?pageNumber={{prePageNum}}&systemID={{systemID}}&courseID={{courseID}}&experimentTypeID={{experimentTypeID}}">
                 <i class="icon-double-angle-left"></i>
                 </a>
               {{else}}
@@ -138,12 +127,12 @@
             </li>
             {{#each paginationArray}}
               <li>
-                <a href="/bank?pageNumber={{this}}">{{this}}</a>
+                <a href="/experiment?pageNumber={{this}}&systemID={{../systemID}}&courseID={{../courseID}}&experimentTypeID={{../experimentTypeID}}">{{this}}</a>
               </li>
             {{/each}}
             <li class="next">
               {{#if nextPageNum}}
-                <a href="/bank?pageNumber={{nextPageNum}}">
+                <a href="/experiment?pageNumber={{nextPageNum}}&systemID={{systemID}}&courseID={{courseID}}&experimentTypeID={{experimentTypeID}}">
                 <i class="icon-double-angle-right"></i>
                 </a>
               {{else}}
@@ -157,65 +146,10 @@
       {{/if}}
     </div>
   </div>
-
-  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="myModal">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">维护实验库</h4>
-        </div>
-        <div class="alert alert-danger store-alert hidden">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <span></span>
-        </div>
-        <form class="form-horizontal" name="myForm" novalidate>
-          <div class="modal-body">
-            <div class="form-group">
-              <label class="col-sm-2 control-label">所属系统</label>
-              <div class="col-sm-10">
-                <select class="form-control" ng-model="model.selectedSystem" ng-options="system as system.systemName for system in model.systemList"></select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">所属课程</label>
-              <div class="col-sm-10">
-                <select class="form-control" ng-model="model.selectedCourse" ng-options="course as course.courseName for course in model.courseList"></select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">实验类型</label>
-              <div class="col-sm-10">
-                <select class="form-control" ng-model="model.selectedExperimentType" ng-options="experimentType as experimentType.experimentTypeName for experimentType in model.experimentTypeList"></select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">实验名称</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" placeholder="请输入实验名称">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">操作步骤</label>
-              <div class="col-sm-10">
-                <textarea class="form-control" maxlength="2000" id="experimentStep" name="experimentStep" ng-model="model.experimentStep" required placeholder=""></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-primary" ng-disabled="model.selectedSystem.systemID == 0
-                                                                            || model.selectedExercisesType.exercisesTypeCode == 0
-                                                                            || model.selectedCourse.courseCode == 0
-                                                                            || model.selectedKnowledge.knowledgeCode == 0
-                                                                            || model.selectedExperiment.experimentCode == 0"> <i class="icon-save"></i>提交</button>
-            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal"><i class="icon-remove"></i>关闭</button>
-          </div>
-        </form>
-
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div>
 </div>
 
 <input type="hidden" value="{{currentPageNum}}" id="hidden-currentPageNum">
+<input type="hidden" value="{{systemID}}" id="hidden-systemID">
+<input type="hidden" value="{{courseID}}" id="hidden-courseID">
+<input type="hidden" value="{{experimentTypeID}}" id="hidden-experimentTypeID">
 <script src="/javascripts/view/experiments.js"></script>

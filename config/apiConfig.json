@@ -13,6 +13,7 @@
       "exercises": "/api/exercises",
       "teachingResource": "/api/teachingResource",
       "teachingResourceChange": "/api/teachingResource/changeStatus",
+      "experiment": "/api/experiment",
       "user": "/api/user"
     }
   }
