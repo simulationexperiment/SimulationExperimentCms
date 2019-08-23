@@ -33,7 +33,7 @@ app.controller('myCtrl', function ($scope, $http) {
   };
 
   $scope.initCkEditor = function(){
-    CKEDITOR.config.height = 350;
+    CKEDITOR.config.height = 250;
     CKEDITOR.config.width = 'auto';
     CKEDITOR.config.extraPlugins = 'html5video';
     CKEDITOR.config.image_previewText = ' ';
