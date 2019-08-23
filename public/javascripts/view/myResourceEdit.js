@@ -149,6 +149,7 @@ app.controller('myCtrl', function ($scope, $http) {
         return false;
       }
       if(response.data.teacherList === null){
+        $scope.model.selectedAuditor = $scope.model.teacherList[0];
         return false;
       }
       angular.forEach(response.data.teacherList, function (teacher) {

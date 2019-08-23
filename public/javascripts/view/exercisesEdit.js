@@ -161,6 +161,7 @@ app.controller('myCtrl', function ($scope, $http) {
         return false;
       }
       if(response.data.knowledgeList === null){
+        $scope.model.selectedKnowledge = $scope.model.knowledgeList[0];
         return false;
       }
       angular.forEach(response.data.knowledgeList, function (knowledge) {
