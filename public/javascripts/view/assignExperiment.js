@@ -10,82 +10,131 @@ app.controller('myCtrl', function ($scope, $http) {
 
     selectedExperimentType4Search: null,
     experimentTypeList4Search: [{experimentTypeID: 0, experimentTypeName: '全部'}],
-
-    //编辑内容
-    selectedSystem: null,
-    systemList: [{systemID: 0, systemName: '请选择所属系统'}],
-
-    selectedCourse: null,
-    courseList: [{courseCode: 0, courseName: '请选择所属课程'}],
-
-    selectedExperimentType: null,
-    experimentTypeList: [{experimentTypeID: 0, experimentTypeName: '请选择实验类型'}],
-
-    selectedExperiment: null,
-    experimentList: [{experimentID: 0, experimentName: '请选择实验'}]
   };
 
   $scope.initPage = function () {
-    CKEDITOR.replace( 'experimentStep');
     $scope.loadSystem();
     $scope.loadCourse();
     $scope.loadExperimentType();
-    $scope.loadExperiment();
-    $scope.setDefaultOption();
   };
 
-  $scope.setDefaultOption = function(){
-    $scope.model.selectedSystem = $scope.model.systemList[0];
-    $scope.model.selectedSystem4Search = $scope.model.systemList4Search[0];
-    $scope.model.selectedCourse4Search = $scope.model.courseList4Search[0];
-    $scope.model.selectedExperimentType4Search = $scope.model.experimentTypeList4Search[0];
-    $scope.model.selectedExperimentType = $scope.model.experimentTypeList[0];
-    $scope.model.selectedExperiment = $scope.model.experimentList[0];
-    $scope.model.selectedCourse = $scope.model.courseList[0];
-  };
-
-  //todo 调用API获取数据
   $scope.loadSystem = function() {
-    $scope.model.systemList.push({systemID: 1, systemName: '3D仓储'});
-    $scope.model.systemList.push({systemID: 2, systemName: '3D运输'});
-    $scope.model.systemList4Search.push({systemID: 1, systemName: '3D仓储'});
-    $scope.model.systemList4Search.push({systemID: 2, systemName: '3D运输'});
+    $http.get('/common/system').then(function successCallback (response) {
+      if(response.data.err){
+        bootbox.alert(response.data.msg);
+        return false;
+      }
+      if(response.data.systemList === null){
+        return false;
+      }
+      let systemID = document.getElementById('hidden-systemID').value;
+      angular.forEach(response.data.systemList, function (system) {
+        $scope.model.systemList4Search.push({
+          systemID: system.systemID,
+          systemName: system.systemName
+        });
+      });
+
+      angular.forEach($scope.model.systemList4Search, function (system) {
+        if(parseInt(systemID) === system.systemID){
+          $scope.model.selectedSystem4Search = system;
+        }
+      });
+    }, function errorCallback(response) {
+      bootbox.alert('网络异常，请检查网络设置');
+    });
   };
 
-  //todo 调用API获取数据
   $scope.loadCourse = function() {
-    $scope.model.courseList.push({courseCode: 1, courseName: '物流企业运营实训'});
-    $scope.model.courseList.push({courseCode: 2, courseName: '邮政快递企业综合实训'});
-    $scope.model.courseList.push({courseCode: 3, courseName: '现代生产物流智能仿真实验'});
-
-
-    $scope.model.courseList4Search.push({courseCode: 1, courseName: '物流企业运营实训'});
-    $scope.model.courseList4Search.push({courseCode: 2, courseName: '邮政快递企业综合实训'});
-    $scope.model.courseList4Search.push({courseCode: 3, courseName: '现代生产物流智能仿真实验'});
+    $http.get('/common/course').then(function successCallback (response) {
+      if(response.data.err){
+        bootbox.alert(response.data.msg);
+        return false;
+      }
+      if(response.data.courseList === null){
+        return false;
+      }
+      let courseID = document.getElementById('hidden-courseID').value;
+      angular.forEach(response.data.courseList, function (course) {
+        $scope.model.courseList4Search.push({
+          courseID: course.courseID,
+          courseName: course.courseName
+        });
+      });
+      angular.forEach($scope.model.courseList4Search, function (course) {
+        if(parseInt(courseID) === course.courseID){
+          $scope.model.selectedCourse4Search = course;
+        }
+      });
+    }, function errorCallback(response) {
+      bootbox.alert('网络异常，请检查网络设置');
+    });
   };
 
-  //todo 调用API获取数据
   $scope.loadExperimentType = function() {
-    $scope.model.experimentTypeList4Search.push({experimentTypeID: 1, experimentTypeName: '含实物实验'});
-    $scope.model.experimentTypeList4Search.push({experimentTypeID: 1, experimentTypeName: '虚拟实验'});
-    $scope.model.experimentTypeList4Search.push({experimentTypeID: 1, experimentTypeName: '演示实验'});
-    $scope.model.experimentTypeList4Search.push({experimentTypeID: 1, experimentTypeName: '客户端实验'});
-    $scope.model.experimentTypeList4Search.push({experimentTypeID: 1, experimentTypeName: '远程实验'});
-    $scope.model.experimentTypeList4Search.push({experimentTypeID: 1, experimentTypeName: '三维仿真实验'});
+    $http.get('/common/experimentType').then(function successCallback (response) {
+      if(response.data.err){
+        bootbox.alert(response.data.msg);
+        return false;
+      }
+      if(response.data.experimentTypeList === null){
+        return false;
+      }
+      let experimentTypeID = document.getElementById('hidden-experimentTypeID').value;
+      angular.forEach(response.data.experimentTypeList, function (experimentType) {
+        $scope.model.experimentTypeList4Search.push({
+          experimentTypeID: experimentType.experimentTypeID,
+          experimentTypeName: experimentType.experimentTypeName
+        });
+      });
 
-    $scope.model.experimentTypeList.push({experimentTypeID: 1, experimentTypeName: '含实物实验'});
-    $scope.model.experimentTypeList.push({experimentTypeID: 1, experimentTypeName: '虚拟实验'});
-    $scope.model.experimentTypeList.push({experimentTypeID: 1, experimentTypeName: '演示实验'});
-    $scope.model.experimentTypeList.push({experimentTypeID: 1, experimentTypeName: '客户端实验'});
-    $scope.model.experimentTypeList.push({experimentTypeID: 1, experimentTypeName: '远程实验'});
-    $scope.model.experimentTypeList.push({experimentTypeID: 1, experimentTypeName: '三维仿真实验'});
+      angular.forEach($scope.model.experimentTypeList4Search, function (experimentType) {
+        if(parseInt(experimentTypeID) === experimentType.experimentTypeID){
+          $scope.model.selectedExperimentType4Search = experimentType;
+        }
+      });
+    }, function errorCallback(response) {
+      bootbox.alert('网络异常，请检查网络设置');
+    });
   };
 
-  //todo 调用API获取数据
-  $scope.loadExperiment = function() {
-    $scope.model.experimentList.push({experimentID: 1, experimentName: '实验1'});
-    $scope.model.experimentList.push({experimentID: 2, experimentName: '实验2'});
-    $scope.model.experimentList.push({experimentID: 3, experimentName: '实验3'});
+  $scope.onSearch = function () {
+    location.href = '/assignExperiment?systemID=' + $scope.model.selectedSystem4Search.systemID
+        + '&courseID=' + $scope.model.selectedCourse4Search.courseID
+        + '&experimentTypeID=' + $scope.model.selectedExperimentType4Search.experimentTypeID;
+  };
+
+  $scope.onChange = function (experimentAssignID) {
+    location.href = '/assignExperiment/edit?experimentAssignID='+experimentAssignID;
+  };
+
+  $scope.onDelete = function (experimentAssignID, experimentName) {
+    bootbox.confirm({
+      message: '您确定要删除已布置的实验：' + experimentName + '吗？',
+      buttons: {
+        confirm: {
+          label: '确认',
+          className: 'btn-danger'
+        },
+        cancel: {
+          label: '取消',
+          className: 'btn-default'
+        }
+      },
+      callback: function (result) {
+        if(result) {
+          $http.delete('/assignExperiment?experimentAssignID=' + experimentAssignID).then(function successCallback(response) {
+            if(response.data.err){
+              bootbox.alert(response.data.msg);
+              return false;
+            }
+            location.reload();
+          }, function errorCallback(response) {
+            bootbox.alert('网络异常，请检查网络设置');
+          });
+        }
+      }
+    });
   };
 
   $scope.initPage();

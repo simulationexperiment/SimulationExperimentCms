@@ -48,10 +48,10 @@
   <div class="space-6"></div>
   <div class="row">
     <div class="col-xs-12">
-      <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">
+      <a href="/assignExperiment/edit" class="btn btn-sm btn-primary">
         <i class="icon-plus"></i>
         添加
-      </button>
+      </a>
       <div class="space-6"></div>
       <div class="table-header">
         找到{{totalCount}}条数据
@@ -82,39 +82,26 @@
           <tbody>
           {{#each dataList}}
             <tr>
-              <td class="center">{{this.bankCode}}</td>
-              <td>{{this.bankCode}}</td>
-              <td>{{this.bankName}}</td>
-              <td>{{this.dataStatusText}}</td>
+              <td class="center">{{this.experimentAssignID}}</td>
+              <td>{{this.systemName}}</td>
+              <td>{{this.courseName}}</td>
+              <td>{{this.experimentTypeName}}</td>
+              <td>{{this.experimentName}}</td>
+              <td>{{this.experimentTimes}}小时</td>
               <td>{{this.createUser}}</td>
               <td>{{this.createTime}}</td>
               <td>{{this.updateUser}}</td>
               <td>{{this.updateTime}}</td>
               <td>
                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                  <button type="button" class="btn btn-sm btn-primary" ng-click="onChange({{this.bankID}})">
+                  <button type="button" class="btn btn-sm btn-success" ng-click="onChange({{this.experimentAssignID}})">
                     <i class="icon-edit"></i>
                     修改
                   </button>
-                  {{# if this.isNormal}}
-                    <button type="button" class="btn btn-sm btn-danger" ng-click="onDelete('{{this.bankID}}','{{this.bankName}}')">
-                      <i class="icon-trash"></i>
-                      删除
-                    </button>
-                  {{/if}}
-
-                  {{# if this.isFrozen}}
-                    <button type="button" class="btn btn-sm btn-success" ng-click="onRecover('{{this.bankID}}','{{this.bankName}}')">
-                      <i class="icon-reply"></i>
-                      恢复
-                    </button>
-                  {{/if}}
-                  {{# if this.isDelete}}
-                    <button type="button" class="btn btn-sm btn-success" ng-click="onRecover('{{this.bankID}}','{{this.bankName}}')">
-                      <i class="icon-reply"></i>
-                      恢复
-                    </button>
-                  {{/if}}
+                  <button type="button" class="btn btn-sm btn-danger" ng-click="onDelete('{{this.experimentAssignID}}','{{this.experimentName}}')">
+                    <i class="icon-trash"></i>
+                    删除
+                  </button>
                 </div>
               </td>
             </tr>
@@ -127,7 +114,7 @@
           <ul class="pagination pull-right no-margin">
             <li class="prev">
               {{#if prePageNum}}
-                <a href="/bank?pageNumber={{prePageNum}}">
+                <a href="/assignExperiment?pageNumber={{prePageNum}}&systemID={{systemID}}&courseID={{courseID}}&experimentTypeID={{experimentTypeID}}">
                 <i class="icon-double-angle-left"></i>
                 </a>
               {{else}}
@@ -138,12 +125,12 @@
             </li>
             {{#each paginationArray}}
               <li>
-                <a href="/bank?pageNumber={{this}}">{{this}}</a>
+                <a href="/assignExperiment?pageNumber={{this}}&systemID={{../systemID}}&courseID={{../courseID}}&experimentTypeID={{../experimentTypeID}}">{{this}}</a>
               </li>
             {{/each}}
             <li class="next">
               {{#if nextPageNum}}
-                <a href="/bank?pageNumber={{nextPageNum}}">
+                <a href="/assignExperiment?pageNumber={{nextPageNum}}&systemID={{systemID}}&courseID={{courseID}}&experimentTypeID={{experimentTypeID}}">
                 <i class="icon-double-angle-right"></i>
                 </a>
               {{else}}
@@ -218,4 +205,7 @@
 </div>
 
 <input type="hidden" value="{{currentPageNum}}" id="hidden-currentPageNum">
+<input type="hidden" value="{{systemID}}" id="hidden-systemID">
+<input type="hidden" value="{{courseID}}" id="hidden-courseID">
+<input type="hidden" value="{{experimentTypeID}}" id="hidden-experimentTypeID">
 <script src="/javascripts/view/assignExperiment.js"></script>

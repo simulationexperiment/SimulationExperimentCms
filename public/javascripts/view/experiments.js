@@ -144,6 +144,5 @@ app.controller('myCtrl', function ($scope, $http) {
     });
   };
 
-
   $scope.initPage();
 });

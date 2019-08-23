@@ -1,0 +1,82 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <i class="icon-home home-icon"></i>
+      <a href="/index">主页</a>
+    </li>
+    <li>
+      <a href="/bank">理论准备</a>
+    </li>
+    <li class="active">布置新实验</li>
+  </ul>
+</div>
+
+<div class="page-content" ng-app="myApp" ng-controller="myCtrl">
+  <div class="page-header">
+    <h1>
+      理论准备
+      <small>
+        <i class="icon-double-angle-right"></i>
+        布置新实验
+      </small>
+    </h1>
+  </div>
+  <div class="row edit-content">
+    <div class="col-xs-12">
+      <div class="edit-info">
+        <div class="detail-content">
+          <form class="form-horizontal" name="myForm" novalidate>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">所属系统</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedSystem" ng-options="system as system.systemName for system in model.systemList" ng-change="onSystemChange()"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">所属课程</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedCourse" ng-options="course as course.courseName for course in model.courseList" ng-change="onCourseChange()"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">实验类型</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedExperimentType" ng-options="experimentType as experimentType.experimentTypeName for experimentType in model.experimentTypeList" ng-change="onExperimentTypeChange()"></select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">选择实验</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedExperiment" ng-options="experiment as experiment.experimentName for experiment in model.experimentList"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">实验时长（小时）</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" name="experimentTimes" ng-model="model.experimentTimes" required placeholder="输入时间时长" min="1">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <a href="/assignExperiment" class="btn btn-default"><i class="icon-reply"></i>返回</a>
+                <button type="button" class="btn btn-success" ng-disabled="model.selectedSystem.systemID == 0 ||
+                                                                            model.selectedCourse.courseID == 0 ||
+                                                                            model.selectedExperimentType.experimentTypeID == 0 ||
+                                                                            model.selectedExperiment.experimentID == 0 ||
+                                                                            (myForm.experimentTimes.$pristine && model.add) ||
+                                                                            (myForm.experimentTimes.$dirty && myForm.experimentTimes.$invalid) ||
+                                                                            model.experimentTimes == 0" ng-click="onSubmit()">
+                  <i class="icon-save"></i>提交
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" value="{{experimentAssignID}}" id="hidden-experimentAssignID">
+</div>
+
+<script src="/javascripts/view/assignExperimentEdit.js"></script>

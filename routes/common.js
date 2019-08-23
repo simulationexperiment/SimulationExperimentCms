@@ -102,6 +102,38 @@ router.get('/experimentType', function (req, res, next) {
   });
 });
 
+router.get('/experiment', function (req, res, next) {
+  let service = new commonService.commonInvoke('experiment');
+  let systemID = req.query.systemID;
+  let courseID = req.query.courseID;
+  let experimentTypeID = req.query.experimentTypeID;
+  if(systemID === undefined){
+    systemID = 0;
+  }
+  if(courseID === undefined){
+    courseID = 0;
+  }
+  if(experimentTypeID === undefined){
+    experimentTypeID = 0;
+  }
+  let parameter = '1/999' + '/' + systemID + '/' + courseID + '/' + experimentTypeID;
+
+  service.get(parameter, function (result) {
+    if(result.err){
+      res.json({
+        err: true,
+        msg: result.msg
+      });
+    }else{
+      res.json({
+        err: !result.content.result,
+        msg: result.content.responseMessage,
+        experimentList: result.content.responseData
+      });
+    }
+  });
+});
+
 router.get('/teacher', function (req, res, next) {
   let service = new commonService.commonInvoke('user');
   let parameter = '1/999/T';
