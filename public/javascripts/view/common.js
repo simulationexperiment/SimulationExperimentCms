@@ -56,7 +56,6 @@ function getActivePath() {
   if(pathname.indexOf('refusedResource') >= 0){
     return '/refusedResource';
   }
-
   if(pathname.indexOf('experiments') >= 0){
     return '/experiments';
   }
@@ -65,6 +64,9 @@ function getActivePath() {
   }
   if(pathname.indexOf('myExperiment') >= 0){
     return '/myExperiment';
+  }
+  if(pathname.indexOf('experimentReport') >= 0){
+    return '/experimentReport';
   }
 
   return pathname;

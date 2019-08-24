@@ -1,0 +1,111 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <i class="icon-home home-icon"></i>
+      <a href="/index">主页</a>
+    </li>
+    <li>
+      <a href="/bank">理论结果</a>
+    </li>
+    <li class="active">实验报告</li>
+  </ul>
+</div>
+
+<div class="page-content" ng-app="myApp" ng-controller="myCtrl">
+  <div class="page-header">
+    <h1>
+      实验报告
+      <small>
+        <i class="icon-double-angle-right"></i>
+        实验报告上传
+      </small>
+    </h1>
+  </div>
+  <div class="row edit-content">
+    <div class="col-xs-12">
+      <div class="alert alert-warning" style="padding: 15px; text-align: center">
+        <button type="button" class="close" data-dismiss="alert">
+          <i class="ace-icon fa fa-times"></i>
+        </button>
+        <strong>报告文件名格式：</strong>
+        名称-学号-系统名称-课程名称-实验名称.pdf OR 名称-学号-系统名称-课程名称-实验名称.zip
+        <br>
+      </div>
+      <div class="space-8"></div>
+      <div class="edit-info">
+        <div class="detail-content">
+          <form class="form-horizontal" name="myForm" novalidate>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">所属系统</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedSystem" ng-options="system as system.systemName for system in model.systemList" ng-change="onSystemChange()"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">所属课程</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedCourse" ng-options="course as course.courseName for course in model.courseList" ng-change="onCourseChange()"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">实验类型</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedExperimentType" ng-options="experimentType as experimentType.experimentTypeName for experimentType in model.experimentTypeList" ng-change="onExperimentTypeChange()"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">选择实验</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedExperiment" ng-options="experiment as experiment.experimentName for experiment in model.experimentList"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">开始时间</label>
+              <div class="col-sm-10">
+                <input type="datetime-local" class="form-control" name="startTime" ng-model="model.startTime" required placeholder="请选择实验开始时间">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">完成时间</label>
+              <div class="col-sm-10">
+                <input type="datetime-local" class="form-control" name="endTime" ng-model="model.endTime" required placeholder="请选择实验完成时间">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">批阅人</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedCorrector" ng-options="teacher as teacher.teacherName for teacher in model.teacherList"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">上传资源（PDF/ZIP）</label>
+              <div class="col-sm-10">
+                <div id="file-upload-resource" class="fileUploadContent"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <a href="/experimentReport" class="btn btn-default"><i class="icon-reply"></i>返回</a>
+                <button type="button" class="btn btn-success" ng-disabled="model.selectedSystem.systemID == 0 ||
+                                                                            model.selectedCourse.courseID == 0 ||
+                                                                            model.selectedExperimentType.experimentTypeID == 0 ||
+                                                                            model.selectedExperiment.experimentID == 0 ||
+                                                                            model.selectedCorrector.teacherID == 0 ||
+                                                                            (myForm.startTime.$pristine && model.add) ||
+                                                                            (myForm.startTime.$dirty && myForm.startTime.$invalid) ||
+                                                                            (myForm.endTime.$pristine && model.add) ||
+                                                                            (myForm.endTime.$dirty && myForm.endTime.$invalid) ||
+                                                                            model.reportUri == ''" ng-click="onSubmit()">
+                  <i class="icon-save"></i>提交
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" value="{{reportID}}" id="hidden-reportID">
+</div>
+
+<script src="/javascripts/view/experimentReportEdit.js"></script>

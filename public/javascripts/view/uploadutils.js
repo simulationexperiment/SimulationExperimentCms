@@ -3,7 +3,7 @@ uploadUtils.initUploadPlugin = function (selector, uploadUrl, fileType, multiple
   $(selector).initUpload({
     "uploadUrl": uploadUrl,//上传文件信息地址
     //"deleteFileUrl":"/editNews/deleteFile?fileName=",//上传文件信息地址
-    //"beforeUpload": beforeUploadFun,//在上传前执行的函数
+    //"beforeUpload": beforeUploadCallback,//在上传前执行的函数
     "ismultiple": multiple,
     "fileType": fileType,//文件类型限制，默认不限制，注意写的是文件后缀
     //"size":350,//文件大小限制，单位kb,默认不限制

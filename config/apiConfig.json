@@ -15,6 +15,8 @@
       "teachingResourceChange": "/api/teachingResource/changeStatus",
       "experiment": "/api/experiment",
       "experimentAssign": "/api/experiment/assign",
+      "experimentReport": "/api/experiment/report",
+      "changeReportScore": "/api/experiment/report/changeScore",
       "user": "/api/user"
     }
   }
