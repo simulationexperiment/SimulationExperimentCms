@@ -68,7 +68,9 @@ function getActivePath() {
   if(pathname.indexOf('experimentReport') >= 0){
     return '/experimentReport';
   }
-
+  if(pathname.indexOf('users') >= 0){
+    return '/users';
+  }
   return pathname;
 }
 

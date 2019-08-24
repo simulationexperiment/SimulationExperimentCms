@@ -17,7 +17,8 @@
       "experimentAssign": "/api/experiment/assign",
       "experimentReport": "/api/experiment/report",
       "changeReportScore": "/api/experiment/report/changeScore",
-      "user": "/api/user"
+      "user": "/api/user",
+      "changePassword": "/api/user/changePassword"
     }
   }
 }

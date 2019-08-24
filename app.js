@@ -43,6 +43,7 @@ const classScheduleRouter = require('./routes/classSchedule');
 const bookingLaboratoryRouter = require('./routes/bookingLaboratory');
 const viewBookedLaboratoryRouter = require('./routes/viewBookedLaboratory');
 const usersRouter = require('./routes/users');
+const usersEditRouter = require('./routes/usersEdit');
 const userInfoRouter = require('./routes/userInfo');
 const changePasswordRouter = require('./routes/changePassword');
 const QARouter = require('./routes/QA');
@@ -111,6 +112,7 @@ app.use('/bookingLaboratory', bookingLaboratoryRouter);
 app.use('/viewBookedLaboratory', viewBookedLaboratoryRouter);
 app.use('/userInfo', userInfoRouter);
 app.use('/users', usersRouter);
+app.use('/users/edit', usersEditRouter);
 app.use('/changePassword', changePasswordRouter);
 app.use('/QA', QARouter);
 

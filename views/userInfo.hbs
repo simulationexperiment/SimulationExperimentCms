@@ -24,45 +24,74 @@
   <div class="space-6"></div>
   <div class="row">
     <div class="col-xs-12">
+      <div class="alert alert-warning" style="padding: 15px; text-align: center" ng-if="model.isAdmin == true">
+        <button type="button" class="close" data-dismiss="alert">
+          <i class="ace-icon fa fa-times"></i>
+        </button>
+        <strong>提示：</strong>
+        系统默认管理员账户不能修改
+        <br>
+      </div>
+      <div class="space-8"></div>
 
       <form class="form-horizontal" name="myForm" novalidate>
         <div class="form-group">
           <label class="col-sm-2 control-label">账号</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" placeholder="请输入手机号码">
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="cellphone" ng-model="model.cellphone" required placeholder="请输入手机号码或用户名">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">教师号/学号</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" placeholder="请输入教师号或学号">
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="userCode" ng-model="model.userCode" required placeholder="请输入教师号或学号">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">姓名</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="fullName" ng-model="model.fullName" required placeholder="请输入姓名">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">性别</label>
-          <div class="col-sm-10">
+          <div class="col-sm-8">
             <label class="radio-inline">
-              <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
+              <input type="radio" name="sex" value="M" ng-checked="true" ng-model="model.sex" > 男
             </label>
             <label class="radio-inline">
-              <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
+              <input type="radio" name="sex" value="F" ng-model="model.sex" > 女
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">用户角色</label>
+          <div class="col-sm-8">
+            <label class="radio-inline">
+              <input type="radio" name="userRole" value="T" ng-checked="true" ng-model="model.userRole"> 教师
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="userRole" value="S" ng-model="model.userRole"> 学生
             </label>
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">电子邮箱</label>
-          <div class="col-sm-10">
-            <input type="email" class="form-control" placeholder="请输入邮箱地址">
+          <div class="col-sm-8">
+            <input type="email" class="form-control" name="email" ng-model="model.email" required placeholder="请输入邮箱地址">
           </div>
         </div>
 
-        <div class="modal-footer center">
-          <button type="button" class="btn btn-primary" ng-disabled="model.selectedSystem.systemID == 0
-                                                                            || model.selectedExercisesType.exercisesTypeCode == 0
-                                                                            || model.selectedCourse.courseCode == 0
-                                                                            || model.selectedKnowledge.knowledgeCode == 0
-                                                                            || model.selectedExperiment.experimentCode == 0"> <i class="icon-save"></i>提交</button>
-<!--          <button type="button" class="btn btn-sm btn-default" data-dismiss="modal"><i class="icon-remove"></i>关闭</button>-->
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-success" ng-disabled="model.isAdmin ||
+                                                                          (myForm.cellphone.$dirty && myForm.cellphone.$invalid) ||
+                                                                          (myForm.userCode.$dirty && myForm.userCode.$invalid) ||
+                                                                          (myForm.fullName.$dirty && myForm.fullName.$invalid) ||
+                                                                          (myForm.email.$dirty && myForm.email.$invalid)" ng-click="onSubmit()">
+              <i class="icon-save"></i>提交
+            </button>
+          </div>
         </div>
       </form>
 
@@ -73,4 +102,4 @@
 </div>
 
 <input type="hidden" value="{{currentPageNum}}" id="hidden-currentPageNum">
-<script src="/javascripts/view/assignExperiment.js"></script>
+<script src="/javascripts/view/userInfo.js"></script>

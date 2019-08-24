@@ -1,0 +1,99 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <i class="icon-home home-icon"></i>
+      <a href="/index">主页</a>
+    </li>
+    <li>
+      <a href="/bank">账户信息</a>
+    </li>
+    <li class="active">账户管理</li>
+  </ul>
+</div>
+
+<div class="page-content" ng-app="myApp" ng-controller="myCtrl">
+  <div class="page-header">
+    <h1>
+      账户管理
+      <small>
+        <i class="icon-double-angle-right"></i>
+        账户编辑
+      </small>
+    </h1>
+  </div>
+  <div class="row edit-content">
+    <div class="col-xs-12">
+      <div class="edit-info">
+        <div class="detail-content">
+          <form class="form-horizontal" name="myForm" novalidate>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">账号</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="cellphone" ng-model="model.cellphone" required placeholder="请输入手机号码或用户名">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">教师号/学号</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="userCode" ng-model="model.userCode" required placeholder="请输入教师号或学号">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">姓名</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="fullName" ng-model="model.fullName" required placeholder="请输入姓名">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">性别</label>
+              <div class="col-sm-10">
+                <label class="radio-inline">
+                  <input type="radio" name="sex" value="M" ng-checked="true" ng-model="model.sex" > 男
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="sex" value="F" ng-model="model.sex" > 女
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">用户角色</label>
+              <div class="col-sm-10">
+                <label class="radio-inline">
+                  <input type="radio" name="userRole" value="T" ng-checked="true" ng-model="model.userRole"> 教师
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="userRole" value="S" ng-model="model.userRole"> 学生
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">电子邮箱</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" name="email" ng-model="model.email" required placeholder="请输入邮箱地址">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <a href="/users" class="btn btn-default"><i class="icon-reply"></i>返回</a>
+                <button type="button" class="btn btn-success" ng-disabled="(myForm.cellphone.$pristine && model.add) ||
+                                                                          (myForm.userCode.$pristine && model.add) ||
+                                                                          (myForm.fullName.$pristine && model.add) ||
+                                                                          (myForm.email.$pristine && model.add) ||
+                                                                          (myForm.cellphone.$dirty && myForm.cellphone.$invalid) ||
+                                                                          (myForm.userCode.$dirty && myForm.userCode.$invalid) ||
+                                                                          (myForm.fullName.$dirty && myForm.fullName.$invalid) ||
+                                                                          (myForm.email.$dirty && myForm.email.$invalid)" ng-click="onSubmit()">
+                  <i class="icon-save"></i>提交
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" value="{{userID}}" id="hidden-userID">
+</div>
+
+<script src="/javascripts/view/usersEdit.js"></script>

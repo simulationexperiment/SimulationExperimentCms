@@ -8,7 +8,6 @@ app.controller('myCtrl', function ($scope, $http) {
     sex: 'M',
     userRole: 'T',
     email: '',
-    isAdmin: false,
     add: true
   };
 
@@ -17,7 +16,7 @@ app.controller('myCtrl', function ($scope, $http) {
   };
 
   $scope.loadData = function(){
-    let userID = getLoginUser();
+    let userID = document.getElementById('hidden-userID').value;
     if(userID === ''){
       return false;
     }
@@ -36,9 +35,28 @@ app.controller('myCtrl', function ($scope, $http) {
       $scope.model.fullName = response.data.userInfo.fullName;
       $scope.model.sex = response.data.userInfo.sex;
       $scope.model.userRole = response.data.userInfo.userRole;
-      $scope.model.isAdmin = response.data.userInfo.userRole === 'A';
       $scope.model.email = response.data.userInfo.email;
       $scope.model.add = false;
+    }, function errorCallback(response) {
+      bootbox.alert('网络异常，请检查网络设置');
+    });
+  };
+
+  $scope.addData = function () {
+    $http.post('/users/edit', {
+      cellphone: $scope.model.cellphone,
+      userCode: $scope.model.userCode,
+      fullName: $scope.model.fullName,
+      sex: $scope.model.sex,
+      userRole: $scope.model.userRole,
+      email: $scope.model.email,
+      loginUser: getLoginUser()
+    }).then(function successCallback(response) {
+      if(response.data.err){
+        bootbox.alert(response.data.msg);
+        return false;
+      }
+      location.href = '/users';
     }, function errorCallback(response) {
       bootbox.alert('网络异常，请检查网络设置');
     });
@@ -59,14 +77,18 @@ app.controller('myCtrl', function ($scope, $http) {
         bootbox.alert(response.data.msg);
         return false;
       }
-      bootbox.alert('个人信息修改成功！');
+      location.href = '/users';
     }, function errorCallback(response) {
       bootbox.alert('网络异常，请检查网络设置');
     });
   };
 
   $scope.onSubmit = function(){
-    $scope.changeData();
+    if($scope.model.userID === ''){
+      $scope.addData();
+    }else{
+      $scope.changeData();
+    }
   };
 
   $scope.initPage();
