@@ -17,6 +17,9 @@
       "experimentAssign": "/api/experiment/assign",
       "experimentReport": "/api/experiment/report",
       "changeReportScore": "/api/experiment/report/changeScore",
+      "classSchedule4Teacher": "/api/classSchedule/teacher",
+
+
       "user": "/api/user",
       "changePassword": "/api/user/changePassword"
     }

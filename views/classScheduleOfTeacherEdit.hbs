@@ -1,0 +1,108 @@
+<div class="breadcrumbs" id="breadcrumbs">
+  <ul class="breadcrumb">
+    <li>
+      <i class="icon-home home-icon"></i>
+      <a href="/index">主页</a>
+    </li>
+    <li>
+      <a href="/bank">课程表</a>
+    </li>
+    <li class="active">教师课程表</li>
+  </ul>
+</div>
+
+<div class="page-content" ng-app="myApp" ng-controller="myCtrl">
+  <div class="page-header">
+    <h1>
+      教师课程表
+      <small>
+        <i class="icon-double-angle-right"></i>
+        课程表编辑
+      </small>
+    </h1>
+  </div>
+  <div class="row edit-content">
+    <div class="col-xs-12">
+      <div class="edit-info">
+        <div class="detail-content">
+          <form class="form-horizontal" name="myForm" novalidate>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">所属系统</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedSystem" ng-options="system as system.systemName for system in model.systemList" ng-change="onSystemChange()"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">教师</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedTeacher" ng-options="teacher as teacher.teacherName for teacher in model.teacherList"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">第几节</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="model.selectedCourseOrder" ng-options="courseOrder as courseOrder.courseOrderName for courseOrder in model.courseOrderList"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">星期一课程</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" maxlength="15" ng-model="model.mondayCourse" placeholder="请填写星期一对应节次的课程">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">星期二课程</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" maxlength="15" ng-model="model.tuesdayCourse" placeholder="请填写星期二对应节次的课程">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">星期三课程</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" maxlength="15" ng-model="model.wednesdayCourse" placeholder="请填写星期三对应节次的课程">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">星期四课程</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" maxlength="15" ng-model="model.thursdayCourse" placeholder="请填写星期四对应节次的课程">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">星期五课程</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" maxlength="15" ng-model="model.fridayCourse" placeholder="请填写星期五对应节次的课程">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">星期六课程</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" maxlength="15" ng-model="model.saturdayCourse" placeholder="请填写星期六对应节次的课程">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">星期日课程</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" maxlength="15" ng-model="model.sundayCourse" placeholder="请填写星期日对应节次的课程">
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button href="/classScheduleOfTeacher" class="btn btn-default" ng-click="onBack()"><i class="icon-reply"></i>返回</button>
+                <button type="button" class="btn btn-success" ng-disabled="model.selectedSystem.systemID == 0 ||
+                                                                            model.selectedTeacher.teacherID == 0" ng-click="onSubmit()">
+                  <i class="icon-save"></i>提交
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" value="{{scheduleID}}" id="hidden-scheduleID">
+</div>
+
+<script src="/javascripts/view/classScheduleOfTeacherEdit.js"></script>
