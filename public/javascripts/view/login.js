@@ -22,7 +22,8 @@ app.controller('myCtrl', function ($scope, $http) {
         return false;
       }
       //记录Cookie
-      setCookie('secms.user', JSON.stringify(response.data.userInfo));
+      setCookie('secmsUser', JSON.stringify(response.data.userInfo));
+      setCookie('secmsUserID', JSON.stringify(response.data.userInfo.userID));
       location.href = '/index';
     }, function errorCallback(response) {
       bootbox.alert('网络异常，请检查网络设置');

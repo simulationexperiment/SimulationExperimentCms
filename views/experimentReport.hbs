@@ -120,16 +120,18 @@
               <td>{{this.updateUser}}</td>
               <td>{{this.updateTime}}</td>
               <td>
-                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                  <button type="button" class="btn btn-sm btn-success" ng-click="onChange({{this.reportID}})">
-                    <i class="icon-edit"></i>
-                    修改
-                  </button>
-                  <button type="button" class="btn btn-sm btn-danger" ng-click="onDelete('{{this.reportID}}','{{this.reportName}}')">
-                    <i class="icon-trash"></i>
-                    删除
-                  </button>
-                </div>
+                {{# if this.allowEdit}}
+                  <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                    <button type="button" class="btn btn-sm btn-success" ng-click="onChange({{this.reportID}})">
+                      <i class="icon-edit"></i>
+                      修改
+                    </button>
+                    <button type="button" class="btn btn-sm btn-danger" ng-click="onDelete('{{this.reportID}}','{{this.reportName}}')">
+                      <i class="icon-trash"></i>
+                      删除
+                    </button>
+                  </div>
+                {{/if}}
               </td>
             </tr>
           {{/each}}

@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
   let systemID = req.query.systemID;
   let courseID = req.query.courseID;
   let resourceTypeID = req.query.resourceTypeID;
+  let auditorID = req.cookies.secmsUserID;
   if(pageNumber === undefined){
     pageNumber = 1;
   }
@@ -21,7 +22,10 @@ router.get('/', function(req, res, next) {
   if(resourceTypeID === undefined){
     resourceTypeID = 0;
   }
-  let parameter = pageNumber + '/' + sysConfig.pageSize + '/' + systemID + '/' + courseID + '/' + resourceTypeID + '/P';
+  if(auditorID === undefined){
+    auditorID = 0;
+  }
+  let parameter = pageNumber + '/' + sysConfig.pageSize + '/' + systemID + '/' + courseID + '/' + resourceTypeID + '/P' + '/' + auditorID;
 
   service.get(parameter, function (result) {
     let renderData = commonService.buildRenderData('待审核资源', pageNumber, result);

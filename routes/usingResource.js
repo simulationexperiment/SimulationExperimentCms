@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
   if(resourceTypeID === undefined){
     resourceTypeID = 0;
   }
-  let parameter = pageNumber + '/' + sysConfig.pageSize + '/' + systemID + '/' + courseID + '/' + resourceTypeID + '/A';
+  let parameter = pageNumber + '/' + sysConfig.pageSize + '/' + systemID + '/' + courseID + '/' + resourceTypeID + '/A/0';
 
   service.get(parameter, function (result) {
     let renderData = commonService.buildRenderData('教学资源库', pageNumber, result);

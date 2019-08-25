@@ -25,10 +25,17 @@ router.get('/', function(req, res, next) {
   if(resourceStatusID === undefined){
     resourceStatusID = 'null';
   }
-  let parameter = pageNumber + '/' + sysConfig.pageSize + '/' + systemID + '/' + courseID + '/' + resourceTypeID + '/' + resourceStatusID;
+  let parameter = pageNumber + '/' + sysConfig.pageSize + '/' + systemID + '/' + courseID + '/' + resourceTypeID + '/' + resourceStatusID + '/0';
 
   service.get(parameter, function (result) {
-    let renderData = commonService.buildRenderData('知识点管理', pageNumber, result);
+    let renderData = commonService.buildRenderData('资源管理', pageNumber, result);
+    if(renderData.dataList !== null){
+      for(let resource of renderData.dataList){
+        if(resource.resourceStatus === 'P' || resource.resourceStatus === 'R'){
+          resource.allowEdit = true;
+        }
+      }
+    }
     renderData.systemID = systemID;
     renderData.courseID = courseID;
     renderData.resourceTypeID = resourceTypeID;

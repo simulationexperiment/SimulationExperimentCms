@@ -117,13 +117,13 @@ function setPaginationStatus() {
 
 function addCommonEvent() {
   $('li.logout').click(function () {
-    delCookie('secms.user');
+    delCookie('secmsUser');
     location.href = '/';
   });
 }
 
 function showLoginUser() {
-  let cookie = getCookie('secms.user');
+  let cookie = getCookie('secmsUser');
   if(cookie !== null){
     let loginUser = JSON.parse(cookie);
     $('#login-user-photo').attr('src', loginUser.adminPhoto);
@@ -132,7 +132,7 @@ function showLoginUser() {
 }
 
 function getLoginUserInfo() {
-  var cookie = getCookie('secms.user');
+  var cookie = getCookie('secmsUser');
   if(cookie !== null){
     return JSON.parse(cookie);
   }
@@ -141,7 +141,7 @@ function getLoginUserInfo() {
 }
 
 function getLoginUser() {
-  var cookie = getCookie('secms.user');
+  var cookie = getCookie('secmsUser');
   if(cookie !== null){
     var loginUser = JSON.parse(cookie);
     return loginUser.userID;

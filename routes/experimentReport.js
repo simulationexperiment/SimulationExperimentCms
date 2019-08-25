@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
   let courseID = req.query.courseID;
   let experimentTypeID = req.query.experimentTypeID;
   let reportStatus = req.query.reportStatus;
+  let createUser = req.cookies.secmsUserID;
   if(pageNumber === undefined){
     pageNumber = 1;
   }
@@ -25,10 +26,18 @@ router.get('/', function(req, res, next) {
   if(reportStatus === undefined){
     reportStatus = 'A';
   }
-  let parameter = pageNumber + '/' + sysConfig.pageSize + '/' + systemID + '/' + courseID + '/' + experimentTypeID + '/' + reportStatus;
+
+  let parameter = pageNumber + '/' + sysConfig.pageSize + '/' + systemID + '/' + courseID + '/' + experimentTypeID + '/' + reportStatus+ '/' + createUser + '/0';
 
   service.get(parameter, function (result) {
     let renderData = commonService.buildRenderData('实验报告', pageNumber, result);
+    if(renderData.dataList !== null){
+      for(let data of renderData.dataList){
+        if(data.resourceStatus === 'P'){
+          data.allowEdit = true;
+        }
+      }
+    }
     renderData.systemID = systemID;
     renderData.courseID = courseID;
     renderData.experimentTypeID = experimentTypeID;

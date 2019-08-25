@@ -64,7 +64,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //登录拦截器
 app.use(function (req, res, next) {
   let url = req.originalUrl;
-  if (url !== '/' && req.cookies['secms.user'] === undefined) {
+  if (url !== '/' && req.cookies['secmsUser'] === undefined) {
     return res.redirect("/");
   }
   next();
