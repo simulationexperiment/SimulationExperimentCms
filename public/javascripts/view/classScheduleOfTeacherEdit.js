@@ -8,7 +8,6 @@ app.controller('myCtrl', function ($scope, $http) {
     selectedSystem: null,
     systemList: [{systemID: 0, systemName: '请选择所属系统'}],
 
-
     //编辑内容：教师
     originalTeacherID: 0,
     originalTeacherName: 0,
@@ -28,7 +27,7 @@ app.controller('myCtrl', function ($scope, $http) {
     fridayCourse: '',
     saturdayCourse: '',
     sundayCourse: '',
-
+    scheduledDay: [],
     add: true
   };
 
@@ -145,30 +144,91 @@ app.controller('myCtrl', function ($scope, $http) {
   };
 
   $scope.addData = function () {
-    $http.post('/classScheduleOfTeacher/edit', {
-      systemID: $scope.model.selectedSystem.systemID,
-      teacherID: $scope.model.selectedTeacher.teacherID,
-      courseOrder: $scope.model.selectedCourseOrder.courseOrderID,
-      mondayCourse: $scope.model.mondayCourse,
-      tuesdayCourse: $scope.model.tuesdayCourse,
-      wednesdayCourse: $scope.model.wednesdayCourse,
-      thursdayCourse: $scope.model.thursdayCourse,
-      fridayCourse: $scope.model.fridayCourse,
-      saturdayCourse: $scope.model.saturdayCourse,
-      sundayCourse: $scope.model.sundayCourse,
-      loginUser: getLoginUser()
-    }).then(function successCallback(response) {
+    $http.get('/classScheduleOfTeacher/edit/checkClassScheduled?systemID=' + $scope.model.selectedSystem.systemID +
+        '&teacherID=' + $scope.model.selectedTeacher.teacherID +
+        '&courseOrder=' + $scope.model.selectedCourseOrder.courseOrderID +
+        '&days=' + $scope.model.scheduledDay.toString()
+    ).then(function successCallback (response) {
       if(response.data.err){
         bootbox.alert(response.data.msg);
         return false;
       }
+      if(response.data.scheduledDay !== null){
+        let scheduledDayArray = response.data.scheduledDay.split(',');
+        let scheduledDays = '';
+        angular.forEach(scheduledDayArray, function (day) {
+          scheduledDays += '星期' + day + ' ';
+        });
+        bootbox.alert('以下时间课程安排冲突：' + scheduledDays);
+        return false;
+      }
 
-      location.href = '/classScheduleOfTeacher?systemID=' + $scope.model.selectedSystem.systemID
-          + '&teacherID=' + $scope.model.selectedTeacher.teacherID
-          + '&teacherName=' + $scope.model.selectedTeacher.teacherName;
+      $http.post('/classScheduleOfTeacher/edit', {
+        systemID: $scope.model.selectedSystem.systemID,
+        teacherID: $scope.model.selectedTeacher.teacherID,
+        courseOrder: $scope.model.selectedCourseOrder.courseOrderID,
+        mondayCourse: $scope.model.mondayCourse,
+        tuesdayCourse: $scope.model.tuesdayCourse,
+        wednesdayCourse: $scope.model.wednesdayCourse,
+        thursdayCourse: $scope.model.thursdayCourse,
+        fridayCourse: $scope.model.fridayCourse,
+        saturdayCourse: $scope.model.saturdayCourse,
+        sundayCourse: $scope.model.sundayCourse,
+        loginUser: getLoginUser()
+      }).then(function successCallback(response) {
+        if(response.data.err){
+          bootbox.alert(response.data.msg);
+          return false;
+        }
+
+        location.href = '/classScheduleOfTeacher?systemID=' + $scope.model.selectedSystem.systemID
+            + '&teacherID=' + $scope.model.selectedTeacher.teacherID
+            + '&teacherName=' + $scope.model.selectedTeacher.teacherName;
+      }, function errorCallback(response) {
+        bootbox.alert('网络异常，请检查网络设置');
+      });
+
     }, function errorCallback(response) {
       bootbox.alert('网络异常，请检查网络设置');
     });
+  };
+
+  $scope.checkData = function(){
+    if($scope.model.mondayCourse === '' &&
+        $scope.model.tuesdayCourse === '' &&
+        $scope.model.wednesdayCourse === '' &&
+        $scope.model.thursdayCourse === '' &&
+        $scope.model.fridayCourse === '' &&
+        $scope.model.saturdayCourse === '' &&
+        $scope.model.sundayCourse === ''){
+      bootbox.alert('请输入课程信息！');
+      return false;
+    }
+
+    $scope.model.scheduledDay.splice(0, $scope.model.scheduledDay.length);
+    if($scope.model.mondayCourse !== ''){
+      $scope.model.scheduledDay.push(1);
+    }
+    if($scope.model.tuesdayCourse !== ''){
+      $scope.model.scheduledDay.push(2);
+    }
+    if($scope.model.wednesdayCourse !== ''){
+      $scope.model.scheduledDay.push(3);
+    }
+    if($scope.model.thursdayCourse !== ''){
+      $scope.model.scheduledDay.push(4);
+    }
+    if($scope.model.fridayCourse !== ''){
+      $scope.model.scheduledDay.push(5);
+    }
+    if($scope.model.saturdayCourse !== ''){
+      $scope.model.scheduledDay.push(6);
+    }
+    if($scope.model.sundayCourse !== ''){
+      $scope.model.sundayCourse.push(7);
+    }
+
+    return true;
   };
 
   $scope.onBack = function() {
@@ -179,10 +239,12 @@ app.controller('myCtrl', function ($scope, $http) {
           + '&teacherID=' + $scope.model.originalTeacherID
           + '&teacherName=' + $scope.model.originalTeacherName;
     }
-
   };
 
   $scope.onSubmit = function(){
+    if(!$scope.checkData()){
+      return false;
+    }
     $scope.addData();
   };
 

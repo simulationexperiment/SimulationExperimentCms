@@ -26,6 +26,31 @@ router.get('/detail', function (req, res, next) {
   });
 });
 
+router.get('/checkClassScheduled', function (req, res, next) {
+  let service = new commonService.commonInvoke('checkClassScheduled');
+  let systemID = req.query.systemID;
+  let teacherID = req.query.teacherID;
+  let courseOrder = req.query.courseOrder;
+  let days = req.query.days;
+
+  let parameter = systemID + '/' + teacherID + '/' + courseOrder + '/' + days;
+
+  service.get(parameter, function (result) {
+    if(result.err){
+      res.json({
+        err: true,
+        msg: result.msg
+      });
+    }else{
+      res.json({
+        err: !result.content.result,
+        msg: result.content.responseMessage,
+        scheduledDay: result.content.responseData
+      });
+    }
+  });
+});
+
 router.post('/', function (req, res, next) {
   let service = new commonService.commonInvoke('classSchedule4Teacher');
   let data = {

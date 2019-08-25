@@ -55,48 +55,46 @@
       <div class="table-responsive">
         <table id="data-list" class="table table-striped table-bordered table-hover no-margin-bottom">
           <thead>
-          <tr>
-            <th class="center">星期/节次</th>
-            <th class="center">星期一</th>
-            <th class="center">星期二</th>
-            <th class="center">星期三</th>
-            <th class="center">星期四</th>
-            <th class="center">星期五</th>
-            <th class="center">星期六</th>
-            <th class="center">星期日</th>
-            <th ng-if="model.userRole != 'S'" class="hidden-480">添加</th>
-            <th ng-if="model.userRole != 'S'">
-              <i class="icon-time bigger-110 hidden-480"></i>
-              添加时间
-            </th>
-            <th ng-if="model.userRole != 'S'">操作</th>
-
-          </tr>
+            <tr>
+              <th class="center">星期/节次</th>
+              <th class="center">星期一</th>
+              <th class="center">星期二</th>
+              <th class="center">星期三</th>
+              <th class="center">星期四</th>
+              <th class="center">星期五</th>
+              <th class="center">星期六</th>
+              <th class="center">星期日</th>
+              <th ng-if="model.userRole != 'S'" class="hidden-480">添加</th>
+              <th ng-if="model.userRole != 'S'">
+                <i class="icon-time bigger-110 hidden-480"></i>
+                添加时间
+              </th>
+              <th ng-if="model.userRole != 'S'">操作</th>
+            </tr>
           </thead>
           <tbody>
-
-          {{#each dataList}}
-            <tr>
-              <td class="center">第{{this.courseOrder}}节课</td>
-              <td>{{this.mondayCourse}}</td>
-              <td>{{this.tuesdayCourse}}</td>
-              <td>{{this.wednesdayCourse}}</td>
-              <td>{{this.thursdayCourse}}</td>
-              <td>{{this.fridayCourse}}</td>
-              <td>{{this.saturdayCourse}}</td>
-              <td>{{this.sundayCourse}}</td>
-              <td ng-if="model.userRole != 'S'">{{this.createUser}}</td>
-              <td ng-if="model.userRole != 'S'">{{this.createTime}}</td>
-              <td ng-if="model.userRole != 'S'">
-                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                  <button type="button" class="btn btn-sm btn-primary" ng-click="onChange({{this.scheduleID}})">
-                    <i class="icon-edit"></i>
-                    修改
-                  </button>
-                </div>
-              </td>
-            </tr>
-          {{/each}}
+            {{#each dataList}}
+              <tr>
+                <td class="center">第{{this.courseOrder}}节课</td>
+                <td>{{this.mondayCourse}}</td>
+                <td>{{this.tuesdayCourse}}</td>
+                <td>{{this.wednesdayCourse}}</td>
+                <td>{{this.thursdayCourse}}</td>
+                <td>{{this.fridayCourse}}</td>
+                <td>{{this.saturdayCourse}}</td>
+                <td>{{this.sundayCourse}}</td>
+                <td ng-if="model.userRole != 'S'">{{this.createUser}}</td>
+                <td ng-if="model.userRole != 'S'">{{this.createTime}}</td>
+                <td ng-if="model.userRole != 'S'">
+                  <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                    <button type="button" class="btn btn-sm btn-primary" ng-click="onChange({{this.scheduleID}})">
+                      <i class="icon-edit"></i>
+                      修改
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            {{/each}}
           </tbody>
         </table>
       </div>

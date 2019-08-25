@@ -8,7 +8,7 @@ app.controller('myCtrl', function ($scope, $http) {
     selectedTeacher4Search: null,
     teacherList4Search: [{teacherID: 0, teacherName: '请选择教师'}],
 
-    userRole: '',
+    userRole: ''
   };
 
   $scope.initPage = function () {
