@@ -4,6 +4,7 @@ $(document).ready(function () {
   setPaginationStatus();
   addCommonEvent();
   showLoginUser();
+  hideNav();
 });
 
 function setAlertBell() {
@@ -13,6 +14,22 @@ function setAlertBell() {
   }
 }
 
+function hideNav() {
+  let loginUserInfo = getLoginUserInfo();
+  if(loginUserInfo !== 'unknown'){
+    if(loginUserInfo.userRole === 'S'){
+      //隐藏只能由教师和管理员操作的菜单
+      $('li.teacher-nav').hide();
+      $('li.admin-nav').hide();
+    }
+    if(loginUserInfo.userRole === 'T'){
+      //隐藏只能由学生和管理员操作的菜单
+      $('li.student-nav').hide();
+      $('li.admin-nav').hide();
+    }
+
+  }
+}
 function setActiveNav() {
   let pathname = getActivePath();
   $('.nav-list li.active').removeClass('active');

@@ -9,9 +9,13 @@ app.controller('myCtrl', function ($scope, $http) {
 
     selectedCreator: null,
     teacherList4Search: [{teacherID: 0, teacherName: '全部'}],
+
+    userRole: '',
   };
 
   $scope.initPage = function () {
+    let loginUserInfo = getLoginUserInfo();
+    $scope.model.userRole = loginUserInfo.userRole;
     $scope.loadSystem();
     $scope.loadTeachers();
     $scope.setDefaultOption();

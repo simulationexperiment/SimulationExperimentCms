@@ -10,9 +10,13 @@ app.controller('myCtrl', function ($scope, $http) {
 
     selectedExperimentType4Search: null,
     experimentTypeList4Search: [{experimentTypeID: 0, experimentTypeName: '全部'}],
+
+    userRole: '',
   };
 
   $scope.initPage = function () {
+    let loginUserInfo = getLoginUserInfo();
+    $scope.model.userRole = loginUserInfo.userRole;
     $scope.loadSystem();
     $scope.loadCourse();
     $scope.loadExperimentType();
@@ -102,6 +106,13 @@ app.controller('myCtrl', function ($scope, $http) {
     location.href = '/assignExperiment?systemID=' + $scope.model.selectedSystem4Search.systemID
         + '&courseID=' + $scope.model.selectedCourse4Search.courseID
         + '&experimentTypeID=' + $scope.model.selectedExperimentType4Search.experimentTypeID;
+  };
+
+  $scope.onShowExperimentContent = function(systemName, experimentName, experimentContent){
+    bootbox.alert({
+      title: systemName + ' ' + experimentName + ' 实验步骤',
+      message: experimentContent
+    });
   };
 
   $scope.onChange = function (experimentAssignID) {
