@@ -39,77 +39,39 @@
         <div class="space-8"></div>
 
         <div id="faq-list-2" class="panel-group accordion-style1 accordion-style2">
+        {{#each dataList}}
           <div class="panel panel-default">
             <div class="panel-heading">
-              <a href="#faq-2-1" data-parent="#faq-list-2" data-toggle="collapse" class="accordion-toggle collapsed" aria-expanded="false">
+              <a href="#faq-{{@index}}" data-parent="#faq-list-2" data-toggle="collapse" class="accordion-toggle collapsed" aria-expanded="false">
                 <i class="smaller-80 ace-icon icon-chevron-right " data-icon-hide="ace-icon icon-chevron-down align-top" data-icon-show="ace-icon icon-chevron-right"></i>&nbsp;
-                Enim eiusmod high life accusamus terry richardson?
+                {{this.question.createUser}} {{this.question.createTime}}
+                <br>
+                <br>
+                {{this.question.question}}
               </a>
-              <a href="#" style="margin-left: 25px">我来回答</a>
+              <a href="#" style="margin-left: 25px" ng-click="onAnswer('{{this.question.questionID}}', '{{this.question.question}}')">回复（{{this.answerCount}}）</a>
             </div>
 
-            <div class="panel-collapse collapse" id="faq-2-1" aria-expanded="false" style="height: 0px;">
+            <div class="panel-collapse collapse" id="faq-{{@index}}" aria-expanded="false" style="height: 0px;">
+              {{#each this.answerList}}
               <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                {{this.createUser}}
+                {{this.createTime}}
+                <br>
+                {{this.answer}}
               </div>
+              {{/each}}
             </div>
           </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <a href="#faq-2-2" data-parent="#faq-list-2" data-toggle="collapse" class="accordion-toggle collapsed" aria-expanded="false" style="width: 80%">
-                <i class="smaller-80 ace-icon icon-chevron-right " data-icon-hide="ace-icon icon-chevron-down align-top" data-icon-show="ace-icon icon-chevron-right"></i>&nbsp;
-                Single-origin coffee nulla assumenda shoreditch et?
-              </a>
-              <a href="#" style="margin-left: 25px">我来回答</a>
-            </div>
-
-            <div class="panel-collapse collapse" id="faq-2-2" aria-expanded="false" style="height: 0px;">
-              <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-              </div>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <a href="#faq-2-3" data-parent="#faq-list-2" data-toggle="collapse" class="accordion-toggle collapsed" aria-expanded="false">
-                <i class="middle smaller-80 ace-icon icon-chevron-right" data-icon-hide="ace-icon icon-chevron-down align-top" data-icon-show="ace-icon icon-chevron-right"></i>&nbsp;
-                Sunt aliqua put a bird on it squid?
-              </a>
-              <a href="#" style="margin-left: 25px">我来回答</a>
-            </div>
-
-            <div class="panel-collapse collapse" id="faq-2-3" aria-expanded="false" style="height: 0px;">
-              <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-              </div>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <a href="#faq-2-4" data-parent="#faq-list-2" data-toggle="collapse" class="accordion-toggle" aria-expanded="true">
-                <i class="smaller-80 ace-icon icon-chevron-down align-top" data-icon-hide="ace-icon icon-chevron-down align-top" data-icon-show="ace-icon icon-chevron-right"></i>&nbsp;
-                Brunch 3 wolf moon tempor sunt aliqua put?
-              </a>
-              <a href="#" style="margin-left: 25px">我来回答</a>
-            </div>
-
-            <div class="panel-collapse collapse in" id="faq-2-4" aria-expanded="true" style="">
-              <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-              </div>
-            </div>
-          </div>
+        {{/each}}
         </div>
       </div>
 
     </div>
   </div>
 
-  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="myModal">
-    <div class="modal-dialog modal-lg" role="document">
+  <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -122,41 +84,57 @@
         <form class="form-horizontal" name="myForm" novalidate>
           <div class="modal-body">
             <div class="form-group">
-              <label class="col-sm-2 control-label">系统</label>
-              <div class="col-sm-10">
-                <select class="form-control" ng-model="model.selectedSystem" ng-options="system as system.systemName for system in model.systemList"></select>
+              <div class="col-sm-12">
+                <textarea class="form-control" maxlength="200" name="question" rows="10" ng-model="model.question" required placeholder="请输入需要提问的内容（200字以内）"></textarea>
               </div>
             </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">实验名称</label>
-              <div class="col-sm-10">
-                <select class="form-control" ng-model="model.selectedCourse" ng-options="course as course.courseName for course in model.courseList"></select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">问题</label>
-              <div class="col-sm-10">
-                <textarea class="form-control" maxlength="500" id="knowledgeContent" name="knowledgeContent" ng-model="model.knowledgeContent" required placeholder="请输入知识点内容"></textarea>
-              </div>
-            </div>
-
-
-
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-primary" ng-disabled="model.selectedSystem.systemID == 0
-                                                                            || model.selectedExercisesType.exercisesTypeCode == 0
-                                                                            || model.selectedCourse.courseCode == 0
-                                                                            || model.selectedKnowledge.knowledgeCode == 0
-                                                                            || model.selectedExperiment.experimentCode == 0"> <i class="icon-save"></i>提交</button>
             <button type="button" class="btn btn-sm btn-default" data-dismiss="modal"><i class="icon-remove"></i>关闭</button>
+            <button type="button" class="btn btn-sm btn-primary" ng-disabled="myForm.question.$pristine || (myForm.question.$dirty && myForm.question.$invalid)" ng-click="onSubmitQuestion()">
+              <i class="icon-save"></i>
+              提交
+            </button>
           </div>
         </form>
 
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div>
+
+  <div class="modal fade" tabindex="-1" role="dialog" id="answerModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">填写回复内容</h4>
+        </div>
+        <div class="alert alert-danger store-alert hidden">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <span></span>
+        </div>
+        <form class="form-horizontal" name="answerForm" novalidate>
+          <div class="modal-body">
+            <div class="form-group">
+              <div class="col-sm-12">
+                <p ng-bind="model.answer4Question"></p>
+                <textarea class="form-control" maxlength="200" name="answer" rows="10" ng-model="model.answer" required placeholder="请输入回复的内容（200字以内）"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal"><i class="icon-remove"></i>关闭</button>
+            <button type="button" class="btn btn-sm btn-primary" ng-disabled="answerForm.answer.$pristine || (answerForm.answer.$dirty && answerForm.answer.$invalid)" ng-click="onSubmitAnswer()">
+              <i class="icon-save"></i>
+              提交
+            </button>
+          </div>
+        </form>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+
 </div>
 
-<input type="hidden" value="{{currentPageNum}}" id="hidden-currentPageNum">
-<script src="/javascripts/view/knowledge.js"></script>
+<script src="/javascripts/view/QA.js"></script>

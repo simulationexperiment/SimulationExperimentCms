@@ -21,9 +21,13 @@
       "classSchedule4Teacher": "/api/classSchedule/teacher",
       "checkClassScheduled": "/api/classSchedule/teacher/checkClassScheduled",
       "classSchedule": "/api/classSchedule/teacher/scheduleList",
-
       "laboratoryAppointment": "/api/laboratory/appointment",
       "checkLaboratoryScheduled": "/api/laboratory/appointment/scheduled",
+
+
+      "question": "/api/qa/question",
+      "answer": "/api/qa/answer",
+      "qa": "/api/qa",
 
       "user": "/api/user",
       "changePassword": "/api/user/changePassword"
