@@ -8,6 +8,7 @@
       "resourceType": "/api/baseData/resourceType",
       "experimentType": "/api/baseData/experimentType",
       "exercisesType": "/api/baseData/exercisesType",
+      "laboratory": "/api/baseData/laboratory",
       "login": "/api/user/login",
       "knowledge": "/api/knowledge",
       "exercises": "/api/exercises",
@@ -19,8 +20,11 @@
       "changeReportScore": "/api/experiment/report/changeScore",
       "classSchedule4Teacher": "/api/classSchedule/teacher",
       "checkClassScheduled": "/api/classSchedule/teacher/checkClassScheduled",
-
       "classSchedule": "/api/classSchedule/teacher/scheduleList",
+
+      "laboratoryAppointment": "/api/laboratory/appointment",
+      "checkLaboratoryScheduled": "/api/laboratory/appointment/scheduled",
+
       "user": "/api/user",
       "changePassword": "/api/user/changePassword"
     }

@@ -210,4 +210,24 @@ router.get('/knowledge', function (req, res, next) {
   });
 });
 
+router.get('/laboratory', function (req, res, next) {
+  let service = new commonService.commonInvoke('laboratory');
+  let parameter = '1/999';
+
+  service.get(parameter, function (result) {
+    if(result.err){
+      res.json({
+        err: true,
+        msg: result.msg
+      });
+    }else{
+      res.json({
+        err: !result.content.result,
+        msg: result.content.responseMessage,
+        laboratoryList: result.content.responseData
+      });
+    }
+  });
+});
+
 module.exports = router;

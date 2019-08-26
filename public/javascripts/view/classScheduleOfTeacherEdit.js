@@ -132,7 +132,7 @@ app.controller('myCtrl', function ($scope, $http) {
     $scope.model.courseOrderList.push({courseOrderID: 2, courseOrderName: '第二节课'});
     $scope.model.courseOrderList.push({courseOrderID: 3, courseOrderName: '第三节课'});
     $scope.model.courseOrderList.push({courseOrderID: 4, courseOrderName: '第四节课'});
-    $scope.model.courseOrderList.push( {courseOrderID: 5, courseOrderName: '第五节课'});
+    $scope.model.courseOrderList.push({courseOrderID: 5, courseOrderName: '第五节课'});
     $scope.model.courseOrderList.push({courseOrderID: 6, courseOrderName: '第六节课'});
     $scope.model.courseOrderList.push({courseOrderID: 7, courseOrderName: '第七节课'});
     $scope.model.courseOrderList.push({courseOrderID: 8, courseOrderName: '第八节课'});
