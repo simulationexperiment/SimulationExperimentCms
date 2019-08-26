@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="112f0a34-91be-4ba7-b036-706c59998871" name="Default Changelist" comment="1. 教师课程表开发完成">
+      <change afterPath="$PROJECT_DIR$/public/images/bg.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/bg2.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/upload/report/2019-04-10电子行程单.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/upload/report/2019-04-18电子发票.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/upload/report/2019-04-18电子行程单.pdf" afterDir="false" />
@@ -19,12 +21,8 @@
       <change afterPath="$PROJECT_DIR$/public/upload/resource/阿里巴巴Java开发手册终极版v1.3.0.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/upload/resource/风景3.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/apiConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/apiConfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/view/bookingLaboratory.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/view/bookingLaboratory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/view/classScheduleOfTeacherEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/view/classScheduleOfTeacherEdit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/bookingLaboratory.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/bookingLaboratory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/bookingLaboratory.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/bookingLaboratory.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/login.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,7 +37,26 @@
     <favorites_list name="SimulationExperimentCms" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/login.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="373">
+              <caret line="38" column="76" lean-forward="true" selection-start-line="38" selection-start-column="76" selection-end-line="38" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/login.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,9 +69,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>myResource</find>
-      <find>onSubmit</find>
-      <find>onSearch</find>
       <find>&amp;systemID={{../systemID}}</find>
       <find>.table button</find>
       <find>resourceStatusID</find>
@@ -82,6 +96,9 @@
       <find>classScheduleOfTeacherRouter</find>
       <find>courseOrderList</find>
       <find>formatUTC</find>
+      <find>panel panel-default</find>
+      <find>login-layout</find>
+      <find>toolbar clearfix</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -90,10 +107,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/routes/experimentReportEdit.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/view/experimentReportEdit.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/view/experimentReport.js" />
-        <option value="$PROJECT_DIR$/views/waitingResource.hbs" />
         <option value="$PROJECT_DIR$/views/usingResource.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/view/experimentReview.js" />
         <option value="$PROJECT_DIR$/views/users.hbs" />
@@ -114,7 +127,6 @@
         <option value="$PROJECT_DIR$/views/experiments.hbs" />
         <option value="$PROJECT_DIR$/views/assignExperiment.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/view/assignExperiment.js" />
-        <option value="$PROJECT_DIR$/views/login.hbs" />
         <option value="$PROJECT_DIR$/views/layout.hbs" />
         <option value="$PROJECT_DIR$/routes/usingResource.js" />
         <option value="$PROJECT_DIR$/public/javascripts/view/common.js" />
@@ -137,10 +149,15 @@
         <option value="$PROJECT_DIR$/views/classSchedule.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/view/classScheduleOfTeacherEdit.js" />
         <option value="$PROJECT_DIR$/routes/common.js" />
-        <option value="$PROJECT_DIR$/config/apiConfig.json" />
         <option value="$PROJECT_DIR$/public/javascripts/view/bookingLaboratory.js" />
         <option value="$PROJECT_DIR$/views/bookingLaboratory.hbs" />
         <option value="$PROJECT_DIR$/routes/bookingLaboratory.js" />
+        <option value="$PROJECT_DIR$/config/apiConfig.json" />
+        <option value="$PROJECT_DIR$/routes/QA.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/view/QA.js" />
+        <option value="$PROJECT_DIR$/views/QA.hbs" />
+        <option value="$PROJECT_DIR$/views/login.hbs" />
+        <option value="$PROJECT_DIR$/public/stylesheets/login.css" />
       </list>
     </option>
   </component>
@@ -168,33 +185,19 @@
             <path>
               <item name="SimulationExperimentCms" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimulationExperimentCms" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimulationExperimentCms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimulationExperimentCms" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimulationExperimentCms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimulationExperimentCms" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimulationExperimentCms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimulationExperimentCms" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimulationExperimentCms" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimulationExperimentCms" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimulationExperimentCms" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimulationExperimentCms" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimulationExperimentCms" type="b2602c69:ProjectViewProjectNode" />
@@ -276,7 +279,7 @@
       <workItem from="1565708968784" duration="47974000" />
       <workItem from="1566092057264" duration="5109000" />
       <workItem from="1566125947114" duration="12660000" />
-      <workItem from="1566289978800" duration="122890000" />
+      <workItem from="1566289978800" duration="130707000" />
     </task>
     <task id="LOCAL-00001" summary="开发框架以及部分UI完成">
       <created>1566012079115</created>
@@ -425,36 +428,31 @@
       <option name="project" value="LOCAL" />
       <updated>1566752126796</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="1. 预约实验室开发完成">
+      <created>1566791764516</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1566791764516</updated>
+    </task>
+    <task id="LOCAL-00023" summary="1. 现在问答功能开发完成">
+      <created>1566804084827</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1566804084827</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188973000" />
+    <option name="totallyTimeSpent" value="196790000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="947" extended-state="6" />
+    <frame x="-2" y="23" width="1680" height="947" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49848944" visible="true" weight="0.25376734" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" sideWeight="0.50151056" side_tool="true" weight="0.16998191" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.7906433" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32865497" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.12982456" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49848944" weight="0.2079566" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49848944" visible="true" weight="0.2188065" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.50151056" side_tool="true" weight="0.16998191" />
@@ -472,7 +470,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -500,7 +498,9 @@
     <MESSAGE value="1. 完善数据显示条件" />
     <MESSAGE value="1. 教师课程表开发完成" />
     <MESSAGE value="1. 总课程表开发完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. 总课程表开发完成" />
+    <MESSAGE value="1. 预约实验室开发完成" />
+    <MESSAGE value="1. 现在问答功能开发完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. 现在问答功能开发完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -584,52 +584,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/javascripts/view/experimentReport.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/assignExperiment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/knowledge.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-113">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding>
-            <element signature="e#930#1309#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/experiments.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/order.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/myResource.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/myResource.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="115" column="25" lean-forward="true" selection-start-line="106" selection-start-column="18" selection-end-line="115" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/experimentReview.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -657,31 +611,10 @@
     <entry file="file://$PROJECT_DIR$/config/constantConfig.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/exercisesEdit.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="5" selection-end-line="84" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/view/myResource.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/view/myResourceEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="13" lean-forward="true" selection-end-line="219" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/experimentReportEdit.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="94" column="133" lean-forward="true" selection-start-line="93" selection-start-column="76" selection-end-line="94" selection-end-column="133" />
         </state>
       </provider>
     </entry>
@@ -696,13 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
           <caret line="92" selection-start-line="92" selection-end-line="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/exercises.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="149" column="6" lean-forward="true" selection-start-line="149" selection-start-column="6" selection-end-line="149" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -773,17 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="62" column="20" selection-end-line="154" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/view/exercisesEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="55" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="7" selection-end-column="55" />
-          <folding>
-            <element signature="e#2580#3349#0" />
-            <element signature="e#4293#5032#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -859,20 +774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/apiConfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="31" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="112" column="27" selection-start-line="112" selection-start-column="10" selection-end-line="112" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/usersEdit.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
@@ -940,15 +841,115 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/view/myResourceEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3293">
+          <caret line="15" column="13" lean-forward="true" selection-end-line="219" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/exercises.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="132" column="8" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/exercisesEdit.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-747">
+          <caret line="14" column="5" selection-end-line="84" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/experimentReportEdit.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="94" column="130" selection-start-line="93" selection-start-column="76" selection-end-line="94" selection-end-column="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/experimentsEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="28" selection-start-line="28" selection-end-line="52" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/view/exercisesEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="226" column="4" lean-forward="true" selection-start-line="226" selection-start-column="4" selection-end-line="242" selection-end-column="7" />
+          <folding>
+            <element signature="e#2580#3349#0" />
+            <element signature="e#4293#5032#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="118" column="12" selection-start-line="118" selection-start-column="10" selection-end-line="118" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/bookingLaboratory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        <state relative-caret-position="19">
+          <caret line="1" column="56" lean-forward="true" selection-start-line="1" selection-start-column="56" selection-end-line="2" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/experiments.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="84" column="37" selection-start-line="84" selection-start-column="18" selection-end-line="84" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/apiConfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/view/QA.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/QA.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/QA.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
           <folding>
-            <element signature="e#975#1399#0" />
-            <element signature="e#1646#2229#0" />
-            <element signature="e#726#1105#0" />
+            <element signature="n#div#3;n#div#1;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="38" column="76" lean-forward="true" selection-start-line="38" selection-start-column="76" selection-end-line="38" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
         </state>
       </provider>
     </entry>

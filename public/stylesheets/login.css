@@ -1,11 +1,25 @@
 .header-img{
   width: 375px;
 }
-/*.login-layout{*/
-/*  background: -moz-linear-gradient(45deg, #00367a, #761496);*/
-/*  background: -webkit-linear-gradient(45deg, #00367a, #761496);*/
-/*  background: -o-linear-gradient(45deg, #00367a, #761496);*/
-/*}*/
+.login-layout{
+  background-image: url("../images/bg2.jpeg");
+  /*background: -moz-linear-gradient(45deg, #00367a, #761496);*/
+  /*background: -webkit-linear-gradient(45deg, #00367a, #761496);*/
+  /*background: -o-linear-gradient(45deg, #00367a, #761496);*/
+}
+
+.login-layout .widget-box{
+  width: 430px;
+  background-color: #ffffff;
+  left: 480px;
+}
+.login-layout .widget-box .widget-main{
+  background-color: #ffffff;
+}
+.login-box .toolbar {
+  background: #ffffff;
+  border-top: none;
+}
 /*.login-layout .widget-box{*/
 /*  background: #fff;*/
 /*  position: relative;*/
