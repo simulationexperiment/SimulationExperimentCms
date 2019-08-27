@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  checkBrowserIsChrome();
   setAlertBell();
   setActiveNav();
   setPaginationStatus();
@@ -7,6 +8,12 @@ $(document).ready(function () {
   hideNav();
 });
 
+function checkBrowserIsChrome() {
+  let index = navigator.userAgent.toLowerCase().indexOf('chrome');
+  if(index === -1){
+    bootbox.alert('您当前使用的浏览器不是Chrome浏览，为保证所有功能的正常使用，请下载并使用Chrome浏览器访问该系统！');
+  }
+}
 function setAlertBell() {
   let alertCount = 8;
   if(alertCount > 0){
