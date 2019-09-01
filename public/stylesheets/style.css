@@ -117,6 +117,10 @@
     padding-left: 55px;
     color: #33c3fa;
 }
+.index-left img{
+    width: 80%;
+}
+
 .index-left h1 {
     color: #33c3fa;
 }

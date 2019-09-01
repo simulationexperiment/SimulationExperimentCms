@@ -2,19 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="112f0a34-91be-4ba7-b036-706c59998871" name="Default Changelist" comment="1. 教师课程表开发完成">
-      <change afterPath="$PROJECT_DIR$/public/images/backimg.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/bookingLaboratory.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/classSchedule.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/classScheduleOfTeacher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/exercises.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/experimentPractice.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/experimentReport.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/knowledge.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/qa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/resource.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/temp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/timg.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/timg.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/upload/report/2019-04-10电子行程单.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/upload/report/2019-04-18电子发票.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/upload/report/2019-04-18电子行程单.pdf" afterDir="false" />
@@ -32,10 +19,7 @@
       <change afterPath="$PROJECT_DIR$/public/upload/resource/阿里巴巴Java开发手册终极版v1.3.0.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/upload/resource/风景3.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/apiConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/apiConfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -51,32 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="123" column="14" selection-start-line="123" selection-start-column="14" selection-end-line="123" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/index.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="564">
-              <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/apiConfig.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            <state relative-caret-position="301">
+              <caret line="121" column="1" lean-forward="true" selection-start-line="121" selection-start-column="1" selection-end-line="121" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -179,10 +142,10 @@
         <option value="$PROJECT_DIR$/public/stylesheets/ace/ace.min.css" />
         <option value="$PROJECT_DIR$/public/javascripts/view/common.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/login.css" />
-        <option value="$PROJECT_DIR$/config/apiConfig.json" />
         <option value="$PROJECT_DIR$/views/layout.hbs" />
-        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/views/index.hbs" />
+        <option value="$PROJECT_DIR$/config/apiConfig.json" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
       </list>
     </option>
   </component>
@@ -315,7 +278,7 @@
       <workItem from="1566092057264" duration="5109000" />
       <workItem from="1566125947114" duration="12660000" />
       <workItem from="1566289978800" duration="133935000" />
-      <workItem from="1566982762636" duration="7923000" />
+      <workItem from="1566982762636" duration="8669000" />
     </task>
     <task id="LOCAL-00001" summary="开发框架以及部分UI完成">
       <created>1566012079115</created>
@@ -492,11 +455,18 @@
       <option name="project" value="LOCAL" />
       <updated>1566875008458</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="1. 美化系统主页面">
+      <created>1567007914381</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1567007914381</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207941000" />
+    <option name="totallyTimeSpent" value="208687000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="6" />
@@ -509,7 +479,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.7906433" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32865497" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.12982456" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.12982456" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -552,7 +522,8 @@
     <MESSAGE value="1. 现在问答功能开发完成" />
     <MESSAGE value="1. 美化登陆页面" />
     <MESSAGE value="1. 修改登录页面背景图片&#10;2. 添加使用浏览器的判断" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. 修改登录页面背景图片&#10;2. 添加使用浏览器的判断" />
+    <MESSAGE value="1. 美化系统主页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. 美化系统主页面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1000,25 +971,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/apiConfig.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="123" column="14" selection-start-line="123" selection-start-column="14" selection-end-line="123" selection-end-column="14" />
+        <state relative-caret-position="418">
+          <caret line="22" column="65" lean-forward="true" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+        <state relative-caret-position="-291">
+          <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="121" column="1" lean-forward="true" selection-start-line="121" selection-start-column="1" selection-end-line="121" selection-end-column="1" />
         </state>
       </provider>
     </entry>
