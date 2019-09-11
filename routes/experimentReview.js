@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
     let renderData = commonService.buildRenderData('实验批改', pageNumber, result);
     if(renderData.dataList !== null){
       for(let data of renderData.dataList){
-        if(data.resourceStatus === 'P'){
+        if(data.reportStatus === 'P'){
           data.allowEdit = true;
         }
       }
